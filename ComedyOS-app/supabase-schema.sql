@@ -60,6 +60,9 @@ create trigger on_auth_user_created
   after insert on auth.users
   for each row execute procedure public.handle_new_comedyos_user();
 
+-- Revoke public HTTP execution of the trigger function (Satisfies Supabase Linter 0028 & 0029)
+revoke execute on function public.handle_new_comedyos_user() from public, anon, authenticated;
+
 -- -----------------------------------------------------------------------------
 -- 2. JOURNAL ENTRIES (Unified Vault for Mobile Captures & Desktop Jokes)
 -- -----------------------------------------------------------------------------
