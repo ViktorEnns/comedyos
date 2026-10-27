@@ -1,0 +1,395 @@
+{
+	"nodes": [
+		{
+			"id": "root_app",
+			"type": "text",
+			"text": "# 🎙️ Comedy OS Note Taker\n*System Ingestion & Performance Architecture*",
+			"x": 0,
+			"y": -650,
+			"width": 480,
+			"height": 130,
+			"color": "6"
+		},
+		{
+			"id": "audio_boundary",
+			"type": "group",
+			"label": "audio forward (Granola Intelligence)",
+			"x": -1150,
+			"y": -460,
+			"width": 960,
+			"height": 820,
+			"color": "4"
+		},
+		{
+			"id": "audio_header",
+			"type": "file",
+			"file": "Comedy_OS_Note_Taker_Vault/10_Audio_Forward_Ingestion_Layer.md",
+			"x": -760,
+			"y": -430,
+			"width": 380,
+			"height": 160,
+			"color": "4"
+		},
+		{
+			"id": "audio_desc",
+			"type": "text",
+			"text": "**The Performance Ingestion Layer (Granola Intelligence):**\n\nBefore stepping on stage, hit Record (or set it to auto-record based on venue GPS and time).\n\nThe app records the room, separates comic speech from audience reaction, and transcribes the set.",
+			"x": -1120,
+			"y": -430,
+			"width": 340,
+			"height": 260,
+			"color": "4"
+		},
+		{
+			"id": "feat_11",
+			"type": "file",
+			"file": "Comedy_OS_Note_Taker_Vault/11_Audience_Laughter_and_Silence_Isolation.md",
+			"x": -1120,
+			"y": -140,
+			"width": 260,
+			"height": 180
+		},
+		{
+			"id": "feat_12",
+			"type": "file",
+			"file": "Comedy_OS_Note_Taker_Vault/12_One_Tap_and_Passive_Recording.md",
+			"x": -840,
+			"y": -140,
+			"width": 260,
+			"height": 180
+		},
+		{
+			"id": "feat_13",
+			"type": "file",
+			"file": "Comedy_OS_Note_Taker_Vault/13_Whisper_ASR_Speech_To_Text.md",
+			"x": -560,
+			"y": -140,
+			"width": 260,
+			"height": 180,
+			"color": "5"
+		},
+		{
+			"id": "feat_14",
+			"type": "file",
+			"file": "Comedy_OS_Note_Taker_Vault/14_Conversational_Chat_With_Set_Tape.md",
+			"x": -840,
+			"y": 100,
+			"width": 260,
+			"height": 180
+		},
+		{
+			"id": "feat_14_note",
+			"type": "text",
+			"text": "**Talk to your notes:**\n\nFind context, find your notes and compare past versions of a joke with a current one.",
+			"x": -1120,
+			"y": 100,
+			"width": 260,
+			"height": 180,
+			"color": "4"
+		},
+		{
+			"id": "ghost_mode",
+			"type": "file",
+			"file": "Comedy_OS_Note_Taker_Vault/01_Ghost_Mode_Distraction_Shield.md",
+			"x": -180,
+			"y": -430,
+			"width": 360,
+			"height": 150,
+			"color": "1"
+		},
+		{
+			"id": "ghost_note",
+			"type": "text",
+			"text": "**Ghost Mode:**\n\nLimit distractions while you write. The app puts the device in airplane / DND mode with offline local storage.",
+			"x": 200,
+			"y": -430,
+			"width": 260,
+			"height": 150,
+			"color": "1"
+		},
+		{
+			"id": "text_boundary",
+			"type": "group",
+			"label": "text forward (Keep Simplicity)",
+			"x": 500,
+			"y": -460,
+			"width": 960,
+			"height": 820,
+			"color": "3"
+		},
+		{
+			"id": "text_header",
+			"type": "file",
+			"file": "Comedy_OS_Note_Taker_Vault/20_Text_Forward_Capture_Layer.md",
+			"x": 540,
+			"y": -430,
+			"width": 380,
+			"height": 160,
+			"color": "3"
+		},
+		{
+			"id": "text_desc",
+			"type": "text",
+			"text": "**The Instant Capture Layer (Keep Simplicity):**\n\nTapping the mobile widget opens an immediate blank line (no title, no folder selection, no tag prompt).\n\nType 2 words (e.g., 'Zoo lions') or speak a 5-second voice memo. It saves instantly.",
+			"x": 940,
+			"y": -430,
+			"width": 480,
+			"height": 180,
+			"color": "3"
+		},
+		{
+			"id": "feat_21",
+			"type": "file",
+			"file": "Comedy_OS_Note_Taker_Vault/21_Distraction_Free_Markdown_Pad.md",
+			"x": 540,
+			"y": -140,
+			"width": 260,
+			"height": 180
+		},
+		{
+			"id": "feat_22",
+			"type": "file",
+			"file": "Comedy_OS_Note_Taker_Vault/22_Zero_Click_Floating_Capture_Widget.md",
+			"x": 820,
+			"y": -140,
+			"width": 260,
+			"height": 180
+		},
+		{
+			"id": "feat_23",
+			"type": "file",
+			"file": "Comedy_OS_Note_Taker_Vault/23_Inline_Delivery_Notation_Engine.md",
+			"x": 1100,
+			"y": -140,
+			"width": 260,
+			"height": 180
+		},
+		{
+			"id": "feat_23_note",
+			"type": "text",
+			"text": "**Notation:**\n\nAdd notation to your notes to quickly capture and communicate how to read / perform a joke on stage (`💥`, `🥊`, `💤`, `🗣️`, `🤸`).",
+			"x": 1100,
+			"y": 60,
+			"width": 260,
+			"height": 180
+		},
+		{
+			"id": "comparator_header",
+			"type": "file",
+			"file": "Comedy_OS_Note_Taker_Vault/30_The_Comparator_Bridge.md",
+			"x": -210,
+			"y": -160,
+			"width": 420,
+			"height": 170,
+			"color": "2"
+		},
+		{
+			"id": "comparator_note",
+			"type": "text",
+			"text": "**The Comparator Bridge (The Secret Sauce):**\n\nThe system automatically aligns spoken stage audio against your written notes.\n- **Green words** = Ad-libs on stage\n- **Red strikethrough** = Written lines you forgot\n- **Waveform spikes** = Exact laugh duration",
+			"x": 230,
+			"y": -160,
+			"width": 440,
+			"height": 170,
+			"color": "2"
+		},
+		{
+			"id": "feat_31",
+			"type": "file",
+			"file": "Comedy_OS_Note_Taker_Vault/31_Visual_Diff_Report.md",
+			"x": -520,
+			"y": 140,
+			"width": 300,
+			"height": 200,
+			"color": "2"
+		},
+		{
+			"id": "feat_32",
+			"type": "file",
+			"file": "Comedy_OS_Note_Taker_Vault/32_Dropped_Tag_Alerts.md",
+			"x": -180,
+			"y": 140,
+			"width": 300,
+			"height": 200,
+			"color": "2"
+		},
+		{
+			"id": "feat_33",
+			"type": "file",
+			"file": "Comedy_OS_Note_Taker_Vault/33_Reaction_Waveform_Alignment.md",
+			"x": 160,
+			"y": 140,
+			"width": 300,
+			"height": 200,
+			"color": "2"
+		},
+		{
+			"id": "vault_header",
+			"type": "file",
+			"file": "Comedy_OS_Note_Taker_Vault/40_Atomic_Bit_Database.md",
+			"x": -210,
+			"y": 480,
+			"width": 420,
+			"height": 180,
+			"color": "6"
+		},
+		{
+			"id": "feat_41",
+			"type": "file",
+			"file": "Comedy_OS_Note_Taker_Vault/41_Jokes_As_Living_Objects_State_Machine.md",
+			"x": -720,
+			"y": 750,
+			"width": 320,
+			"height": 180,
+			"color": "5"
+		},
+		{
+			"id": "feat_41_note",
+			"type": "text",
+			"text": "**Object States:**\n\n`Draft` ➔ `Testing` ➔ `Stage Ready` ➔ `Retired`\n\nBits transition based on empirical stage laugh data.",
+			"x": -720,
+			"y": 950,
+			"width": 320,
+			"height": 180,
+			"color": "5"
+		},
+		{
+			"id": "feat_42",
+			"type": "file",
+			"file": "Comedy_OS_Note_Taker_Vault/42_Drag_And_Drop_Modular_Setlist_Timeline.md",
+			"x": -360,
+			"y": 750,
+			"width": 320,
+			"height": 180,
+			"color": "5"
+		},
+		{
+			"id": "feat_42_note",
+			"type": "text",
+			"text": "**The Setlist Builder (Granular Control):**\n\nFor comics who need strict control, bits can be viewed as modular cards and dragged into a linear setlist timeline.",
+			"x": -360,
+			"y": 950,
+			"width": 320,
+			"height": 200,
+			"color": "5"
+		},
+		{
+			"id": "feat_43",
+			"type": "file",
+			"file": "Comedy_OS_Note_Taker_Vault/43_Conversational_Semantic_Search_And_Vector_Embeddings.md",
+			"x": 0,
+			"y": 750,
+			"width": 340,
+			"height": 180,
+			"color": "6"
+		},
+		{
+			"id": "feat_43_note",
+			"type": "text",
+			"text": "**Chat & Semantic Retrieval:**\n\nYou don’t search folders.\nType or ask: *\"Did the airline baggage joke hit harder in Austin or Denver?\"* or *\"Show me all premises from last month with an A-level laugh\"*.",
+			"x": 0,
+			"y": 950,
+			"width": 340,
+			"height": 200,
+			"color": "6"
+		}
+	],
+	"edges": [
+		{
+			"id": "e_root_audio",
+			"fromNode": "root_app",
+			"fromSide": "left",
+			"toNode": "audio_header",
+			"toSide": "top",
+			"label": "audio forward (Granola Intelligence)",
+			"color": "4"
+		},
+		{
+			"id": "e_root_text",
+			"fromNode": "root_app",
+			"fromSide": "right",
+			"toNode": "text_header",
+			"toSide": "top",
+			"label": "text forward (Keep Simplicity)",
+			"color": "3"
+		},
+		{
+			"id": "e_root_ghost",
+			"fromNode": "root_app",
+			"fromSide": "bottom",
+			"toNode": "ghost_mode",
+			"toSide": "top",
+			"label": "Shield",
+			"color": "1"
+		},
+		{
+			"id": "e_audio_comp",
+			"fromNode": "audio_header",
+			"fromSide": "bottom",
+			"toNode": "comparator_header",
+			"toSide": "left",
+			"label": "Performance Audio & Reaction Tape",
+			"color": "4"
+		},
+		{
+			"id": "e_text_comp",
+			"fromNode": "text_header",
+			"fromSide": "bottom",
+			"toNode": "comparator_header",
+			"toSide": "right",
+			"label": "Written Script & Notation",
+			"color": "3"
+		},
+		{
+			"id": "e_comp_diff",
+			"fromNode": "comparator_header",
+			"fromSide": "bottom",
+			"toNode": "feat_31",
+			"toSide": "top"
+		},
+		{
+			"id": "e_comp_tags",
+			"fromNode": "comparator_header",
+			"fromSide": "bottom",
+			"toNode": "feat_32",
+			"toSide": "top"
+		},
+		{
+			"id": "e_comp_waveform",
+			"fromNode": "comparator_header",
+			"fromSide": "bottom",
+			"toNode": "feat_33",
+			"toSide": "top"
+		},
+		{
+			"id": "e_comp_vault",
+			"fromNode": "feat_32",
+			"fromSide": "bottom",
+			"toNode": "vault_header",
+			"toSide": "top",
+			"label": "Diffs, Laughs & Living Objects",
+			"color": "6"
+		},
+		{
+			"id": "e_vault_41",
+			"fromNode": "vault_header",
+			"fromSide": "bottom",
+			"toNode": "feat_41",
+			"toSide": "top"
+		},
+		{
+			"id": "e_vault_42",
+			"fromNode": "vault_header",
+			"fromSide": "bottom",
+			"toNode": "feat_42",
+			"toSide": "top"
+		},
+		{
+			"id": "e_vault_43",
+			"fromNode": "vault_header",
+			"fromSide": "bottom",
+			"toNode": "feat_43",
+			"toSide": "top"
+		}
+	]
+}

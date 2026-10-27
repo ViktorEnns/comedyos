@@ -1,0 +1,2191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ComedyOS — Verbatim Workspace &amp; Waitlist</title>
+  <meta name="description" content="Lose your wallet. Lose your phone. Never lose your jokes. Keep writing longhand in your physical notebook. ComedyOS turns messy pages into a searchable typographic ledger and syncs your live pocket audio." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..700;1,200..700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ==========================================================================
+       COMEDYOS MASTER DESIGN SYSTEM — UNIFIED GALLERY & VARIANT SPECIFICATION
+       Synthesizes Google AI Studio Extract + Variant DOM Extract (568d8c7f / 782176fa)
+       Constitutional Invariants:
+         1. Zero Card Surfaces or Box Containers (100% open #1A1918 canvas).
+         2. Universal Tactile Button Affordance (.btn: 1px stroke, 2px radius,
+            7px 16px padding, uppercase 0.16em tracking; .btn-primary: 6% sage tint).
+         3. Transparent Bottom-Line Inputs (.input-line-group: 9px micro-label +
+            Crimson Pro 19px light input + 1px bottom hairline).
+         4. Strict Font Role Decoupling (Crimson Pro Display/Quotes/Inputs,
+            Inter 300 Prose & 500 Eyebrows, JetBrains Mono Tabular Counts).
+         5. Restrained Single-Accent Budget (#9FAF9A sage is the sole focal accent;
+            zero status dots, zero border-l-4 callouts).
+       ========================================================================== */
+    :root {
+      --bg: #1A1918;
+      --surface-hover: rgba(245, 242, 237, 0.03);
+      --ink: #F5F2ED;
+      --ink-muted: #A19F9A;
+      --ink-faint: rgba(245, 242, 237, 0.45);
+      --placeholder: rgba(245, 242, 237, 0.22);
+      --hairline: rgba(245, 242, 237, 0.10);
+      --hairline-btn: rgba(245, 242, 237, 0.25);
+      --hairline-btn-hover: rgba(245, 242, 237, 0.75);
+      --accent: #9FAF9A;
+      --accent-border: rgba(159, 175, 154, 0.65);
+      --accent-fill: rgba(159, 175, 154, 0.06);
+      --accent-fill-hover: rgba(159, 175, 154, 0.14);
+      --revision: #E26D5C;
+      --revision-border: rgba(226, 109, 92, 0.55);
+
+      --font-serif: 'Crimson Pro', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg);
+      color: var(--ink-muted);
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    *::-webkit-scrollbar {
+      display: none;
+      width: 0;
+      height: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--ink-muted);
+      font-family: var(--font-sans);
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 1.625;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    /* ==========================================================================
+       TYPOGRAPHIC PRIMITIVES
+       ========================================================================== */
+    .serif {
+      font-family: var(--font-serif);
+      color: var(--ink);
+      font-weight: 300;
+    }
+
+    .eyebrow {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+
+    .mono {
+      font-family: var(--font-mono);
+      font-weight: 300;
+      font-variant-numeric: tabular-nums;
+      color: var(--ink-faint);
+    }
+
+    .dot-leader {
+      flex-grow: 1;
+      border-bottom: 1px dotted var(--hairline);
+      margin: 0 12px 6px 12px;
+      min-width: 24px;
+    }
+
+    /* ==========================================================================
+       MODULAR SPATIAL ARCHITECTURE (Base-8 / Base-16 Grid)
+       ========================================================================== */
+    .page-shell {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 64px 96px 96px 96px;
+    }
+
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 24px;
+      margin-bottom: 80px;
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+    }
+
+    .brand-logo {
+      width: 44px;
+      height: 26px;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .brand-wordmark {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .brand-title {
+      font-family: var(--font-serif);
+      font-size: 30px;
+      font-weight: 300;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+      line-height: 1;
+    }
+
+    .brand-title strong {
+      font-weight: 600;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .header-nav a.nav-link {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      text-decoration: none;
+      transition: color 180ms ease;
+    }
+
+    .header-nav a.nav-link:hover {
+      color: var(--ink);
+    }
+
+    /* Major Specimen Sections */
+    .specimen-section {
+      border-bottom: 1px solid var(--hairline);
+      padding-bottom: 64px;
+      margin-bottom: 64px;
+    }
+
+    .specimen-section.no-border {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .section-rubric {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 40px;
+    }
+
+    /* 12-Column Architectural Grid */
+    .grid-12 {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      column-gap: 64px;
+      align-items: start;
+    }
+
+    .col-4  { grid-column: span 4 / span 4; }
+    .col-5  { grid-column: span 5 / span 5; }
+    .col-6  { grid-column: span 6 / span 6; }
+    .col-7  { grid-column: span 7 / span 7; }
+    .col-8  { grid-column: span 8 / span 8; }
+    .col-12 { grid-column: span 12 / span 12; }
+
+    /* ==========================================================================
+       TYPOGRAPHIC SCALE SPECIMENS
+       ========================================================================== */
+    .display-hero {
+      font-family: var(--font-serif);
+      font-size: clamp(44px, 4.3vw, 64px);
+      font-weight: 300;
+      line-height: 1.04;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+      margin-bottom: 24px;
+    }
+
+    .display-quote {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(22px, 2.1vw, 30px);
+      line-height: 1.28;
+      color: var(--ink);
+      margin-bottom: 24px;
+    }
+
+    .heading-section {
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 2.4vw, 38px);
+      font-weight: 300;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+
+    .heading-item {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 300;
+      line-height: 1.3;
+      color: var(--ink);
+    }
+
+    .prose-lead {
+      font-size: 15.5px;
+      line-height: 1.65;
+      color: var(--ink-muted);
+      font-weight: 300;
+      max-width: 58ch;
+    }
+
+    .prose-std {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--ink-muted);
+      font-weight: 300;
+      max-width: 56ch;
+    }
+
+    /* ==========================================================================
+       THE UNIVERSAL BUTTON CONTRACT (.btn & .btn-primary)
+       Crisp 2px geometry, 1px hairline affordance, uppercase tracking
+       ========================================================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 16px;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink);
+      background: transparent;
+      border: 1px solid var(--hairline-btn);
+      border-radius: 2px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 220ms cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+
+    .btn:hover {
+      border-color: var(--hairline-btn-hover);
+      color: #FFFFFF;
+      background: rgba(245, 242, 237, 0.04);
+    }
+
+    .btn-primary {
+      padding: 10px 20px;
+      border-color: var(--accent-border);
+      background: var(--accent-fill);
+    }
+
+    .btn-primary:hover {
+      border-color: var(--accent);
+      background: var(--accent-fill-hover);
+      color: #FFFFFF;
+    }
+
+    .btn.is-active {
+      border-color: var(--accent-border);
+      color: var(--accent);
+      background: var(--accent-fill);
+    }
+
+    .btn .arrow-glyph {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 15px;
+      line-height: 1;
+      color: var(--accent);
+      transition: transform 180ms ease;
+    }
+
+    .btn:hover .arrow-glyph {
+      transform: translateX(3px);
+    }
+
+    /* ==========================================================================
+       ARCHITECTURAL INPUT CONTRACT (Zero Box Fills — 1px Bottom Hairline)
+       ========================================================================== */
+    .waitlist-ledger-form {
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      max-width: 480px;
+    }
+
+    .form-row-split {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 28px;
+    }
+
+    .input-line-group {
+      border-bottom: 1px solid var(--hairline);
+      padding-bottom: 8px;
+      transition: border-color 180ms ease;
+    }
+
+    .input-line-group:focus-within {
+      border-bottom-color: var(--accent);
+    }
+
+    .input-micro-label {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 4px;
+    }
+
+    .input-editorial {
+      width: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      font-family: var(--font-serif);
+      font-size: 19px;
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+
+    .input-editorial::placeholder {
+      color: var(--placeholder);
+      font-style: italic;
+    }
+
+    .cta-action-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    /* ==========================================================================
+       VERTICAL PIPELINE ARCHITECTURE (Continuous Vertical Scroll — Zero Tabs)
+       ========================================================================== */
+    .vertical-pipeline-spine {
+      position: relative;
+      border-left: 1px solid var(--hairline);
+      padding-left: 48px;
+      margin-left: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 56px;
+    }
+
+    .pipeline-stage {
+      position: relative;
+    }
+
+    .stage-node-badge {
+      position: absolute;
+      left: -61px;
+      top: 0;
+      width: 25px;
+      height: 25px;
+      border-radius: 2px;
+      background: var(--bg);
+      border: 1px solid var(--hairline-btn);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    .pipeline-stage.is-active .stage-node-badge {
+      border-color: var(--accent);
+      color: #FFFFFF;
+      background: var(--accent-fill);
+    }
+
+    .conduit-connector {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 12px 0;
+      border-top: 1px dotted var(--hairline);
+      border-bottom: 1px dotted var(--hairline);
+      color: var(--ink-faint);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .conduit-glyph {
+      color: var(--accent);
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    /* ==========================================================================
+       STAGE 01: SET LIST BUILDER & RUNTIME VISUALIZER (Zero Border-Soup)
+       ========================================================================== */
+    .setlist-timeline-wrap {
+      margin-bottom: 24px;
+    }
+
+    .setlist-meta-header {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: 0.04em;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .timeline-segmented-bar {
+      display: flex;
+      width: 100%;
+      height: 76px;
+      position: relative;
+      align-items: stretch;
+      gap: 6px;
+      margin-top: 8px;
+      margin-bottom: 4px;
+    }
+
+    .timeline-segment {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 10px 14px;
+      border-radius: 4px;
+      position: relative;
+      cursor: pointer;
+      transition: all 180ms ease;
+      background: transparent;
+      user-select: none;
+    }
+
+    .timeline-segment:hover,
+    .timeline-segment.is-active-focus {
+      background: rgba(46, 48, 44, 0.55);
+    }
+
+    .timeline-segment .segment-id {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.1;
+      white-space: nowrap;
+      margin-bottom: 3px;
+      transition: color 180ms ease;
+    }
+
+    .timeline-segment .segment-time {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--accent);
+      line-height: 1.1;
+      white-space: nowrap;
+      margin-bottom: 10px;
+    }
+
+    .timeline-segment .segment-bar-line {
+      height: 2px;
+      width: 100%;
+      background: rgba(237, 239, 235, 0.40);
+      border-radius: 2px;
+      transition: all 180ms ease;
+    }
+
+    .timeline-segment.is-active-focus .segment-bar-line,
+    .timeline-segment:hover .segment-bar-line {
+      height: 3px;
+      background: #EDEFEB;
+      box-shadow: 0 0 6px rgba(237, 239, 235, 0.35);
+    }
+
+    .timeline-segment.is-open-time .segment-bar-line {
+      height: 2px;
+      background: repeating-linear-gradient(
+        90deg,
+        rgba(245, 242, 237, 0.25),
+        rgba(245, 242, 237, 0.25) 4px,
+        transparent 4px,
+        transparent 8px
+      );
+    }
+
+    .timeline-segment.is-open-time .segment-id {
+      color: var(--ink-faint);
+    }
+
+    .timeline-segment.is-open-time .segment-time {
+      color: var(--ink-faint);
+    }
+
+    .timeline-segment.is-overflow .segment-bar-line {
+      height: 3px;
+      background: var(--revision);
+    }
+
+    .timeline-segment.is-overflow .segment-id,
+    .timeline-segment.is-overflow .segment-time {
+      color: var(--revision);
+    }
+
+    .timeline-ruler {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--ink-faint);
+      border-top: 1px solid var(--hairline);
+      padding-top: 6px;
+      margin-top: 4px;
+    }
+
+    /* Sub-section Rubric (Add or replace bits) */
+    .repertoire-rubric-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-bottom: 8px;
+      margin-top: 36px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    /* Premise Repertoire Cards Grid (Zero Borders, 50% Reduced Gap) */
+    .joke-card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px; /* Reduced by 50% from 16px */
+    }
+
+    .joke-card {
+      border: none; /* Removed borders from cards */
+      border-radius: 3px;
+      padding: 12px 14px;
+      background: transparent;
+      cursor: pointer;
+      transition: background-color 160ms ease, opacity 160ms ease;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      position: relative;
+      user-select: none;
+    }
+
+    .joke-card:hover,
+    .joke-card.is-hovered {
+      background: rgba(245, 242, 237, 0.035);
+    }
+
+    .joke-card.is-selected {
+      background: rgba(245, 242, 237, 0.018);
+      opacity: 1;
+    }
+
+    .joke-card.is-selected:hover,
+    .joke-card.is-selected.is-hovered {
+      background: rgba(245, 242, 237, 0.045);
+    }
+
+    .joke-card.is-benched {
+      opacity: 0.38;
+    }
+
+    .joke-card.is-benched:hover {
+      opacity: 0.85;
+      background: rgba(245, 242, 237, 0.025);
+    }
+
+    .joke-card-meta-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .joke-card-meta-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Checkmark with ZERO background fill */
+    .joke-card-checkbox {
+      width: 17px;
+      height: 17px;
+      border-radius: 2px;
+      border: 1px solid var(--hairline-btn);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: transparent !important; /* Zero background fill */
+      color: transparent;
+      font-size: 12px;
+      font-weight: 700;
+      transition: all 160ms ease;
+    }
+
+    .joke-card.is-selected .joke-card-checkbox {
+      border-color: var(--accent);
+      background: transparent !important; /* Zero background fill */
+      color: var(--accent) !important;
+    }
+
+    .joke-card-id {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--ink-faint);
+    }
+
+    .joke-card.is-selected .joke-card-id {
+      color: var(--ink);
+    }
+
+    .joke-card-role {
+      font-family: var(--font-sans);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+
+    .joke-card.is-selected .joke-card-role {
+      color: var(--accent);
+    }
+
+    .joke-card-duration {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--ink-faint);
+    }
+
+    .joke-card.is-selected .joke-card-duration {
+      color: var(--accent);
+    }
+
+    .joke-card-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1.25;
+      transition: color 180ms ease;
+    }
+
+    .joke-card.is-benched .joke-card-title {
+      color: var(--ink-muted);
+    }
+
+    .joke-card-excerpt {
+      font-family: var(--font-serif);
+      font-size: 13.5px;
+      font-style: italic;
+      color: var(--ink-muted);
+      line-height: 1.4;
+    }
+
+    .joke-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-top: 6px;
+      border-top: 1px solid var(--hairline);
+      font-size: 10px;
+    }
+
+    /* Verbatim Quote & Stage Directions */
+    .verbatim-passage {
+      font-family: var(--font-serif);
+      font-size: 23px;
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+
+    .diff-omitted {
+      color: var(--revision);
+      text-decoration: line-through;
+      font-style: normal;
+      font-size: 18px;
+      transition: background-color 200ms ease;
+      cursor: pointer;
+    }
+
+    .diff-omitted.is-highlighted {
+      background: rgba(226, 109, 92, 0.15);
+      border-bottom: 1px solid var(--revision);
+    }
+
+    .diff-added {
+      color: var(--accent);
+      border-bottom: 1px dotted var(--accent);
+      transition: background-color 200ms ease;
+      cursor: pointer;
+    }
+
+    .diff-added.is-highlighted {
+      background: var(--accent-fill-hover);
+      border-bottom: 1px solid var(--accent);
+    }
+
+    .hairline-note {
+      padding-top: 20px;
+      margin-top: 24px;
+      border-top: 1px solid var(--hairline);
+    }
+
+    /* Duration Bar */
+    .progress-track {
+      height: 1px;
+      width: 100%;
+      background: var(--hairline);
+      margin-top: 8px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--accent);
+      transition: width 240ms ease;
+    }
+
+    /* ==========================================================================
+       SYNTHESIZED AUDIO WAVEFORM & AUDIENCE REACTION DIFF SPEC
+       ========================================================================== */
+    .waveform-rig {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .waveform-mast {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    .waveform-canvas-wrap {
+      position: relative;
+      height: 84px;
+      width: 100%;
+      display: flex;
+      align-items: flex-end;
+      gap: 3px;
+      padding-bottom: 6px;
+      cursor: crosshair;
+    }
+
+    .waveform-bar {
+      flex: 1;
+      min-width: 2px;
+      background: var(--hairline-btn);
+      border-radius: 1px 1px 0 0;
+      transition: height 160ms ease, background-color 160ms ease;
+    }
+
+    .waveform-bar.is-setup {
+      background: rgba(245, 242, 237, 0.35);
+    }
+
+    .waveform-bar.is-laugh-peak {
+      background: var(--accent);
+    }
+
+    .waveform-bar.is-silence-drop {
+      background: var(--revision-border);
+    }
+
+    .waveform-bar.is-active-head {
+      background: #FFFFFF !important;
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+    }
+
+    .waveform-playhead {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: var(--ink);
+      pointer-events: none;
+      transition: left 100ms linear;
+    }
+
+    .waveform-playhead::after {
+      content: '';
+      position: absolute;
+      top: -3px;
+      left: -2px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .waveform-time-ruler {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--ink-faint);
+      border-top: 1px solid var(--hairline);
+      padding-top: 4px;
+    }
+
+    .reaction-hud-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--hairline);
+      margin-top: 24px;
+    }
+
+    .reaction-hud-cell {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    /* Variant 01. Foundations 3-Column Layout */
+    .three-col-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 64px;
+    }
+
+    .top-rule-bone {
+      border-top: 1px solid var(--ink);
+      padding-top: 24px;
+    }
+
+    .top-rule-smoke {
+      border-top: 1px solid var(--ink-muted);
+      padding-top: 24px;
+    }
+
+    .top-rule-sage {
+      border-top: 1px solid var(--accent);
+      padding-top: 24px;
+    }
+
+    .numeral-prefix {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 20px;
+      color: var(--ink-faint);
+      margin-right: 12px;
+    }
+
+    /* Toast Notice */
+    .toast-region {
+      position: fixed;
+      bottom: 32px;
+      right: 48px;
+      z-index: 90;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 380px;
+    }
+
+    .toast-notice {
+      background: var(--bg);
+      border: 1px solid var(--hairline-btn);
+      border-radius: 2px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      transition: opacity 200ms ease, transform 200ms ease;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE BREAKPOINTS (Tablet & Mobile)
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .page-shell {
+        padding: 48px 40px 64px 40px;
+      }
+
+      .grid-12 {
+        column-gap: 0;
+        row-gap: 48px;
+      }
+
+      .col-4, .col-5, .col-6, .col-7, .col-8 {
+        grid-column: 1 / -1;
+      }
+
+      .vertical-pipeline-spine {
+        padding-left: 32px;
+        margin-left: 8px;
+      }
+
+      .stage-node-badge {
+        left: -45px;
+      }
+
+      .three-col-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .reaction-hud-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-shell {
+        padding: 32px 20px 48px 20px;
+      }
+
+      .site-header {
+        margin-bottom: 48px;
+      }
+
+      .header-nav .hide-sm {
+        display: none;
+      }
+
+      .form-row-split {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .reaction-hud-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .joke-card-grid {
+        grid-template-columns: 1fr;
+      }
+        gap: 16px;
+      }
+
+      .vertical-pipeline-spine {
+        padding-left: 24px;
+        margin-left: 4px;
+      }
+
+      .stage-node-badge {
+        left: -37px;
+        width: 22px;
+        height: 22px;
+        font-size: 9px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-shell" id="top">
+
+    <!-- ======================================================================
+         MASTHEAD: COMEDYOS SVG LOGO + WORDMARK LEFT, TACTILE NAV RIGHT
+         ====================================================================== -->
+    <header class="site-header">
+      <a href="#top" class="brand-group" aria-label="ComedyOS Home">
+        <svg class="brand-logo" width="64" height="38" viewBox="0 0 64 38" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M64 19C64 8.50659 55.4039 0 44.8 0H19.2C8.59613 0 0 8.50659 0 19C0 29.4934 8.59613 38 19.2 38H44.8C55.4039 38 64 29.4934 64 19ZM20.3953 8.44444C7.53634 8.44466 7.3497 29.4139 20.2828 29.5556H43.0198C47.9573 29.5014 52.2304 25.894 53.263 21.2008C53.3027 21.0198 53.1607 20.8519 52.9734 20.8519H47.4438C47.3044 20.8519 47.1836 20.9469 47.1479 21.0802C46.2937 24.2736 43.5534 26.8166 40.1354 26.8167H23.4026C13.9743 26.8166 13.9264 11.6874 23.4026 11.5462H40.1177C43.5281 11.5975 46.335 14.0923 47.1505 17.2945C47.185 17.4297 47.306 17.5269 47.4469 17.527H52.9896C53.1714 17.5269 53.3116 17.3678 53.2813 17.1904C52.4292 12.223 48.0555 8.44448 42.9068 8.44444H20.3953ZM23.4026 12.5007C15.1378 12.6239 15.1928 25.8621 23.4042 25.8621H40.1177C43.0253 25.862 45.4063 23.7189 46.2214 21.0384C46.2498 20.9447 46.1781 20.8519 46.0792 20.8519H42.05C41.9306 20.8519 41.8234 20.9223 41.7703 21.0281C41.0702 22.4239 39.5241 23.4264 37.849 23.4763H25.4536C19.9646 23.3128 19.9874 14.8108 25.4536 14.6479H37.8469C39.5599 14.6989 41.0947 15.8853 41.7729 17.343C41.8243 17.4531 41.9342 17.5269 42.0568 17.5264L46.0833 17.512C46.1809 17.5116 46.2522 17.4204 46.2255 17.3275C45.4502 14.6294 43.0264 12.5445 40.1177 12.5007H23.4026Z" fill-rule="evenodd" clip-rule="evenodd" fill="var(--ink)"/>
+        </svg>
+        <div class="brand-wordmark">
+          <span class="brand-title">Comedy<strong>OS</strong></span>
+          <span class="eyebrow hide-sm">Archive v1.0</span>
+        </div>
+      </a>
+
+      <nav class="header-nav" aria-label="Primary">
+        <a href="#manifesto" class="nav-link hide-sm">00. Why (Manifesto)</a>
+        <a href="#pipeline" class="nav-link hide-sm">01. Live Pipeline</a>
+        <a href="#dilemma" class="nav-link hide-sm">02. Foundations</a>
+        <a href="#workflow" class="nav-link hide-sm">03. The Loop</a>
+        <a href="#waitlist" class="btn">Reserve Access</a>
+      </nav>
+    </header>
+
+    <main>
+
+      <!-- ====================================================================
+           SECTION 00: THE APOLOGY MANIFESTO (TOP OF PAGE — "THE WHY")
+           Delivers immediate contrition & core context followed by waitlist ledger
+           ==================================================================== -->
+      <section class="specimen-section" id="manifesto">
+        <div class="section-rubric">
+          <span class="eyebrow">00. Orientation — An Apology from the Software Industry</span>
+          <span class="mono" style="font-size: 11px;">REF: COS-MANIFESTO-01</span>
+        </div>
+
+        <div class="grid-12">
+
+          <!-- LEFT 7 COLUMNS: The Apology Manifesto Statement & Reason for Being -->
+          <div class="col-7">
+            <h1 class="display-hero">Software has failed stand-up&nbsp;comedians.</h1>
+
+            <p class="display-quote">
+              “On behalf of the software industry: we are sorry. Every note-taking app on the market actively fights a comedian’s brain.”
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+              <p class="prose-lead">
+                If you lose your wallet, you cancel two credit cards and wait three days for a new driver’s license. If you lose your paper notebook on a flight or leave it on a barstool after a late spot, two years of premises, tags, and act-outs vanish forever.
+              </p>
+
+              <p class="prose-std">
+                Even Kevin James admitted on Joe Rogan’s podcast that he has spent years hunting for a system that works for his bits and keeps hitting a wall. Mark Normand and hundreds of working comics say the exact same thing: you want to write by hand, draw arrows, and cross things out—yet every digital app feels like data-entry homework.
+              </p>
+
+              <p class="prose-std">
+                For the last decade, tech companies built bloated tools for influencers editing ring-light videos and corporate managers organizing spreadsheets. Meanwhile, the actual craft of stand-up was treated like an afterthought.
+              </p>
+
+              <p class="prose-std" style="color: var(--ink);">
+                <strong>ComedyOS is the correction:</strong> Keep your physical notebook. Snap a page to turn handwriting into a searchable ledger, assemble tonight’s setlist in seconds, and drop your phone in your pocket to capture live audience laughter without an app store download.
+              </p>
+            </div>
+          </div>
+
+          <!-- RIGHT 5 COLUMNS: Waitlist Reservation Ledger & Founding Cohort Pro Pass -->
+          <div class="col-5" id="waitlist">
+            <div style="padding-left: 24px; border-left: 1px solid var(--hairline);">
+              <span class="eyebrow" style="display: block; margin-bottom: 12px; color: var(--accent);">
+                Batch One Access Ledger
+              </span>
+
+              <p class="serif" style="font-size: 24px; color: var(--ink); line-height: 1.25; margin-bottom: 12px;">
+                Lose your wallet. Lose your phone.<br />Never lose your jokes.
+              </p>
+
+              <p class="prose-std" style="font-size: 13.5px; margin-bottom: 24px;">
+                Reserve early access for the browser-based local PWA. No app store download. No folders to architect. Works offline in basement green rooms.
+              </p>
+
+              <!-- ARCHITECTURAL INPUT CONTRACT + TACTILE .btn-primary -->
+              <form class="waitlist-ledger-form" id="heroWaitlistForm" onsubmit="handleWaitlistSubmit(event)">
+                <div class="form-row-split">
+                  <div class="input-line-group">
+                    <label for="comicEmail" class="input-micro-label">Email Address</label>
+                    <input
+                      type="email"
+                      id="comicEmail"
+                      class="input-editorial"
+                      placeholder="alex@comedycellar.com"
+                      required
+                    />
+                  </div>
+
+                  <div class="input-line-group">
+                    <label for="comicClub" class="input-micro-label">Home Club or City</label>
+                    <input
+                      type="text"
+                      id="comicClub"
+                      class="input-editorial"
+                      placeholder="Austin / NYC"
+                    />
+                  </div>
+                </div>
+
+                <div class="cta-action-row">
+                  <button type="submit" class="btn btn-primary" id="heroSubmitBtn">
+                    <span>Reserve Early Access</span>
+                    <span class="arrow-glyph">→</span>
+                  </button>
+
+                  <span class="mono" id="queueCounterText" style="font-size: 11px;">
+                    BATCH 01 · 142 COMICS
+                  </span>
+                </div>
+              </form>
+
+              <!-- Unboxed Founding Cohort Privilege (Zero Box, Hairline Top) -->
+              <div class="hairline-note" style="margin-top: 36px;">
+                <span class="eyebrow" style="color: var(--accent); display: block; margin-bottom: 6px;">
+                  Founding Cohort Privilege
+                </span>
+                <p class="prose-std" style="font-size: 13px; margin-bottom: 16px;">
+                  First 250 verified comics receive 6 months of ComedyOS Pro (Longhand OCR + Pocket Audio Comparator) free.
+                </p>
+                <button type="button" class="btn" id="vipAttachBtn" onclick="attachFoundingPerk()">
+                  <span>Attach 6-Month Pro Pass</span>
+                  <span class="arrow-glyph">→</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SECTION 01: THE 60-SECOND PIPELINE (VERTICAL SCROLL FLOW — ZERO TABS)
+           Sequential Stage 01 -> Conduit -> Stage 02 -> Conduit -> Stage 03
+           ==================================================================== -->
+      <section class="specimen-section" id="pipeline">
+        <div class="section-rubric">
+          <span class="eyebrow">01. Architecture — The Sixty-Second Flow</span>
+          <span class="mono" style="font-size: 11px;">VERBATIM VERTICAL LEDGER</span>
+        </div>
+
+        <div class="grid-12" style="margin-bottom: 48px;">
+          <div class="col-6">
+            <h2 class="heading-section">From Physical Ink to Stage Audio</h2>
+          </div>
+          <div class="col-6">
+            <p class="prose-lead">
+              A continuous, unbroken vertical ledger. No tab switching. Follow a single premise from raw handwritten legal pad into tonight’s setlist budget, then verify against live pocket audio reaction spikes.
+            </p>
+          </div>
+        </div>
+
+        <!-- CONTINUOUS ARCHITECTURAL VERTICAL SPINE -->
+        <div class="vertical-pipeline-spine">
+
+          <!-- ==============================================================
+               STAGE 01: THE SETLIST BUILDER & SET TIME VISUALIZER
+               ============================================================== -->
+          <div class="pipeline-stage is-active" id="pipelineStage1">
+            <div class="stage-node-badge">01</div>
+
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; flex-wrap: wrap; gap: 12px;">
+              <div>
+                <span class="eyebrow" style="color: var(--accent); display: block; margin-bottom: 4px;">
+                  Stage 01 · Setlist Builder &amp; Set Time Visualizer
+                </span>
+                <h3 class="heading-item" style="font-size: 22px;">Assemble Tonight’s Spot in 30 Seconds</h3>
+              </div>
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <span class="mono" id="durationCounterText" style="font-size: 12px; color: var(--accent); font-weight: 500;">
+                  07:00 / 07:00 SPOT
+                </span>
+                <span class="mono" id="durationStatusBadge" style="font-size: 10px; color: var(--accent); padding: 2px 7px; border: 1px solid var(--accent-border); border-radius: 2px; background: var(--accent-fill);">
+                  100% LOCKED
+                </span>
+              </div>
+            </div>
+
+            <!-- SET LIST HEADER METADATA & SEGMENTED TIME VISUALIZER (Reflects User's Layout) -->
+            <div class="setlist-timeline-wrap">
+              <div class="setlist-meta-header">
+                <span>Set List B-17 · 7 Minutes · Oct 22, 2026, 8pm · Comedy Cellar, NY</span>
+                <span id="bitCountStatus" style="color: var(--accent);">4 Bits selected</span>
+              </div>
+
+              <!-- Segmented Visualizer Bar -->
+              <div class="timeline-segmented-bar" id="timelineSegmentedBar">
+                <!-- Populated dynamically: B-402, B-398, B-397, B-395 -->
+              </div>
+
+              <!-- Time Ruler with 00:00 Start, 06:00 Light, 07:00 End -->
+              <div class="timeline-ruler">
+                <span>00:00 Start</span>
+                <span style="margin-left: auto; margin-right: 28px; color: var(--ink-faint);">06:00 Light</span>
+                <span style="color: var(--accent);">07:00 End</span>
+              </div>
+            </div>
+
+            <!-- PREMISE REPERTOIRE (Zero borders, transparent checkmarks, no disclaimer, 50% gap) -->
+            <div class="repertoire-rubric-row">
+              <span class="eyebrow" style="color: var(--ink-muted);">
+                Add or replace bits (Recent)
+              </span>
+              <span class="mono" style="font-size: 10px; color: var(--ink-faint);">
+                TAP TO INCLUDE / BENCH
+              </span>
+            </div>
+
+            <div class="joke-card-grid" id="jokeCardGrid">
+              <!-- Populated dynamically by renderJokeCards() -->
+            </div>
+
+            <div style="margin-top: 14px; display: flex; justify-content: flex-start;">
+              <button type="button" class="btn" onclick="showNotice('Opening full notebook bit archive...', 'Dismiss')" style="padding: 5px 12px; font-size: 10px;">
+                <span>Add more...</span>
+                <span class="arrow-glyph">→</span>
+              </button>
+            </div>
+
+          </div>
+
+          <!-- VERTICAL CONDUIT 1 -->
+          <div class="conduit-connector">
+            <span class="conduit-glyph">↓</span>
+            <span>Conduit A: Optical Manuscript Isolation · Margin Doodles &amp; Cross-Outs Stripped</span>
+          </div>
+
+          <!-- ==============================================================
+               STAGE 02: LONGHAND MANUSCRIPT OCR EXTRACTION
+               ============================================================== -->
+          <div class="pipeline-stage is-active" id="pipelineStage2">
+            <div class="stage-node-badge">02</div>
+
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+              <div>
+                <span class="eyebrow" style="color: var(--accent); display: block; margin-bottom: 4px;">
+                  Stage 02 · Longhand Manuscript OCR Extraction
+                </span>
+                <h3 class="heading-item" style="font-size: 22px;">Isolated from Moleskine Page 42</h3>
+              </div>
+              <span class="mono" style="font-size: 11px;">LEGAL PAD #04 · 03 PREMISES PARSED</span>
+            </div>
+
+            <p class="verbatim-passage">
+              “Why do luxury hotels put a landline phone right next to the toilet? Who is making an emergency conference call mid-crisis? Yeah, front desk—send up a priest and two more towels.”
+            </p>
+
+            <div class="hairline-note" style="margin-top: 16px;">
+              <span class="eyebrow" style="color: var(--accent); display: block; margin-bottom: 6px;">
+                Lexicon Context Harness
+              </span>
+              <p class="serif" style="font-size: 18px; color: var(--ink-muted);">
+                Automatically indexed under <span style="color: var(--ink);">Hotels</span>, <span style="color: var(--ink);">Room Service</span>, and <span style="color: var(--ink);">Absurdity</span> so you can retrieve the bit backstage even when you forget the exact wording.
+              </p>
+            </div>
+          </div>
+
+          <!-- VERTICAL CONDUIT 2 -->
+          <div class="conduit-connector">
+            <span class="conduit-glyph">↓</span>
+            <span>Conduit B: Live Pocket Audio Sync &amp; Audience Reaction Decibel Diff</span>
+          </div>
+
+          <!-- ==============================================================
+               STAGE 03: POCKET AUDIO DIFF & SYNTHESIZED AUDIENCE REACTION WAVEFORM
+               ============================================================== -->
+          <div class="pipeline-stage is-active" id="pipelineStage3">
+            <div class="stage-node-badge">03</div>
+
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+              <div>
+                <span class="eyebrow" style="color: var(--accent); display: block; margin-bottom: 4px;">
+                  Stage 03 · Pocket Audio Diff &amp; Audience Reaction Map
+                </span>
+                <h3 class="heading-item" style="font-size: 22px;">Cap City Comedy Club — Live Room Audio Sync</h3>
+              </div>
+              <div style="display: flex; align-items: center; gap: 16px;">
+                <span class="mono" id="waveformLiveTime" style="font-size: 11px; color: var(--accent);">
+                  00:14 / 00:30
+                </span>
+                <button type="button" class="btn" id="playbackToggleBtn" onclick="toggleWaveformPlayback()" style="padding: 5px 12px; font-size: 10px;">
+                  <span id="playbackBtnLabel">▶ Simulate Room Playback</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- SYNTHESIZED AUDIO WAVEFORM RIG -->
+            <div class="waveform-rig">
+              <div class="waveform-mast">
+                <span class="mono" style="font-size: 10px; letter-spacing: 0.1em;">
+                  SYNTHESIZED ROOM TELEMETRY · 45-BAND DECIBEL PROFILE
+                </span>
+                <span class="mono" id="decibelMeter" style="font-size: 10px; color: var(--accent);">
+                  ROOM PEAK: -3.8 dB (LAUGH SURGE)
+                </span>
+              </div>
+
+              <!-- High-precision Waveform Bars with Interactive Scrubbing -->
+              <div
+                class="waveform-canvas-wrap"
+                id="waveformCanvas"
+                onclick="handleWaveformClick(event)"
+                onmousemove="handleWaveformHover(event)"
+                onmouseleave="handleWaveformLeave()"
+                title="Click or scrub across waveform to inspect audience reactions"
+              >
+                <!-- Generated dynamically by script: 48 precision vertical amplitude bars -->
+                <div class="waveform-playhead" id="waveformPlayhead" style="left: 46%;"></div>
+              </div>
+
+              <div class="waveform-time-ruler">
+                <span>00:00 (Setup)</span>
+                <span>00:08</span>
+                <span style="color: var(--accent);">00:14 (Laugh Surge +8.2dB)</span>
+                <span>00:20 (Dropped Tag)</span>
+                <span>00:26</span>
+                <span>00:30 (Closer)</span>
+              </div>
+            </div>
+
+            <!-- Synchronized Verbatim Passage with Diff Tags -->
+            <p class="verbatim-passage" id="waveformScriptPassage">
+              “TSA doesn’t care about safety. They just want to see how dignified you look
+              <span class="diff-omitted" id="diffOmittedTag" onclick="scrubToSecond(20)" title="Click to inspect dropped tag">— walking around in your socks on a cold tile floor —</span>
+              <span class="diff-added is-highlighted" id="diffAddedTag" onclick="scrubToSecond(14)" title="Click to inspect laugh peak">+ holding your pants up by your belt loops like an Oliver Twist orphan.”</span>
+            </p>
+
+            <!-- Audience Reaction Telemetry HUD (Hairlines Only — Zero Boxes) -->
+            <div class="reaction-hud-grid">
+              <div class="reaction-hud-cell">
+                <span class="eyebrow" style="color: var(--ink-faint);">Peak Room Volume</span>
+                <span class="mono" id="hudPeakVol" style="font-size: 16px; color: var(--accent);">-3.8 dB</span>
+                <span class="mono" style="font-size: 10px;">+8.2 dB OVER BASELINE</span>
+              </div>
+
+              <div class="reaction-hud-cell">
+                <span class="eyebrow" style="color: var(--ink-faint);">Laugh Duration</span>
+                <span class="mono" id="hudLaughDur" style="font-size: 16px; color: var(--accent);">5.2s Roll</span>
+                <span class="mono" style="font-size: 10px;">ROOM ERUPTION DETECTED</span>
+              </div>
+
+              <div class="reaction-hud-cell">
+                <span class="eyebrow" style="color: var(--ink-faint);">Script Adjustment</span>
+                <span class="mono" id="hudScriptAdj" style="font-size: 16px; color: var(--ink);">Promoted</span>
+                <span class="mono" style="font-size: 10px;">UNSCRIPTED RIFF -> SCRIPT</span>
+              </div>
+
+              <div class="reaction-hud-cell">
+                <span class="eyebrow" style="color: var(--ink-faint);">Missed Beat</span>
+                <span class="mono" id="hudMissedBeat" style="font-size: 16px; color: var(--revision);">Re-Queued</span>
+                <span class="mono" style="font-size: 10px;">DROPPED SETUP SAVED</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SECTION 02: THE LONGHAND DILEMMA (Variant 01. Foundations 3-Column Layout)
+           ==================================================================== -->
+      <section class="specimen-section" id="dilemma">
+        <div class="section-rubric">
+          <span class="eyebrow">02. Foundations — The Longhand Dilemma</span>
+          <span class="mono" style="font-size: 11px;">03 STRUCTURAL FRICTIONS</span>
+        </div>
+
+        <div class="grid-12" style="margin-bottom: 64px;">
+          <div class="col-5">
+            <h2 class="heading-section">Why Comedians Still Guard Paper Notebooks</h2>
+          </div>
+          <div class="col-7">
+            <p class="display-quote" style="margin-bottom: 0;">
+              “If you leave your notebook on a flight, two years of premises vanish forever—yet typing into a phone feels like homework.”
+            </p>
+          </div>
+        </div>
+
+        <div class="three-col-grid">
+          <div class="top-rule-bone">
+            <div style="display: flex; align-items: baseline; margin-bottom: 12px;">
+              <span class="numeral-prefix">2.1</span>
+              <h3 class="heading-item">The Typing Tax</h3>
+            </div>
+            <p class="prose-std">
+              Re-typing eighty pages of legal pads into a phone screen kills creative momentum. You need the tactile freedom to write by hand, draw arrows, and cross words out on real paper.
+            </p>
+          </div>
+
+          <div class="top-rule-smoke">
+            <div style="display: flex; align-items: baseline; margin-bottom: 12px;">
+              <span class="numeral-prefix">2.2</span>
+              <h3 class="heading-item">The Voice Memo Void</h3>
+            </div>
+            <p class="prose-std">
+              You drop your phone in your pocket to record your set, but the next morning you face an unnamed forty-five-minute audio file, dreading scrubbing through dead air to find one thirty-second riff.
+            </p>
+          </div>
+
+          <div class="top-rule-sage">
+            <div style="display: flex; align-items: baseline; margin-bottom: 12px;">
+              <span class="numeral-prefix">2.3</span>
+              <h3 class="heading-item">The Autocorrect Nanny</h3>
+            </div>
+            <p class="prose-std">
+              Corporate note apps force you through nested folders and aggressive spellcheckers that sanitize profanity and underline every deliberate punchline rhythm in red.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SECTION 03: THE 60-SECOND LOOP & LEXICON MEMORY HARNESS
+           ==================================================================== -->
+      <section class="specimen-section" id="workflow">
+        <div class="section-rubric">
+          <span class="eyebrow">03. Mechanics — Sixty Seconds from Paper to Stage</span>
+          <span class="mono" style="font-size: 11px;">UNIFIED INGEST &amp; RECALL</span>
+        </div>
+
+        <div class="grid-12">
+
+          <div class="col-5">
+            <div style="display: flex; align-items: baseline; margin-bottom: 12px;">
+              <span class="numeral-prefix">3.1</span>
+              <h2 class="heading-section" style="margin-bottom: 0;">One Control for Voice &amp; Ink</h2>
+            </div>
+
+            <p class="prose-lead" style="margin-bottom: 24px;">
+              Whether you whisper a premise on the subway or type two words backstage, a single morphing input adapts to your hand: when empty, it records audio; the moment you type, it saves text.
+            </p>
+
+            <p class="prose-std" style="margin-bottom: 32px;">
+              Every bit is automatically mapped into your personal Lexicon Context Harness. Months later, you can retrieve a joke by describing the situation without using a single word from the actual bit.
+            </p>
+
+            <div class="hairline-note" style="margin-top: 24px;">
+              <span class="eyebrow" style="display: block; margin-bottom: 6px;">
+                Stage Hardware Policy
+              </span>
+              <p class="prose-std">
+                Comedians never hold a glowing phone on stage. ComedyOS operates strictly pre-set and post-set while your phone stays in your pocket or green room bag.
+              </p>
+            </div>
+          </div>
+
+          <!-- RIGHT 7 COLUMNS: Open-Canvas Interactive Ingest & Memory Recall Specimen -->
+          <div class="col-7">
+            <div style="padding-left: 32px; border-left: 1px solid var(--hairline);">
+
+              <!-- Morphing Single-CTA Input + Tactile .btn -->
+              <div style="margin-bottom: 48px;">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">
+                  <label for="morphDraftInput" class="input-micro-label" style="margin-bottom: 0;">
+                    Interactive Capture Bar — Leave Empty for Voice or Type a Premise
+                  </label>
+                  <span class="mono" id="morphStateHint" style="font-size: 11px;">
+                    MODE: VOICE MEMO
+                  </span>
+                </div>
+
+                <div class="input-line-group" style="display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+                  <input
+                    type="text"
+                    id="morphDraftInput"
+                    class="input-editorial"
+                    placeholder="Start writing a premise or press Record..."
+                    oninput="handleMorphTyping(this.value)"
+                  />
+                  <button type="button" class="btn" id="morphActionBtn" onclick="executeMorphCapture()" style="flex-shrink: 0;">
+                    <span>Record 5s Audio</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Semantic Memory Recall Specimen: Tactile .btn Controls -->
+              <div>
+                <span class="eyebrow" style="display: block; margin-bottom: 16px;">
+                  Test Context Harness Recall — Select a vague memory cue
+                </span>
+
+                <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 32px;">
+                  <button type="button" class="btn is-active" onclick="selectMemoryCue('airport', this)">
+                    Airport Gate Dignity
+                  </button>
+                  <button type="button" class="btn" onclick="selectMemoryCue('grocery', this)">
+                    Grocery Machine Guilt
+                  </button>
+                  <button type="button" class="btn" onclick="selectMemoryCue('hotel', this)">
+                    Hotel Toilet Landline
+                  </button>
+                </div>
+
+                <div class="verbatim-passage" id="recallResultPassage" style="margin-bottom: 16px;">
+                  “TSA doesn’t care about safety. They just want to see how dignified you look holding your pants up by your belt loops like an Oliver Twist orphan.”
+                </div>
+
+                <div style="display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding-top: 16px; border-top: 1px solid var(--hairline);">
+                  <span class="eyebrow" id="recallHarnessMeta" style="color: var(--accent);">
+                    Context Harness: Airport Authority · Humiliation · Belt Loops
+                  </span>
+                  <span class="mono" id="recallScoreMeta" style="font-size: 11px;">
+                    B-398 · 94% MATCH
+                  </span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SECTION 04: ARCHIVE SYSTEM STANDARDS (Variant 782176fa Specimen)
+           ==================================================================== -->
+      <section class="specimen-section no-border" id="standards">
+        <div class="section-rubric">
+          <span class="eyebrow">04. Standards — System Palette &amp; Local Invariants</span>
+          <span class="mono" style="font-size: 11px;">VARIANT 782176fa</span>
+        </div>
+
+        <div class="grid-12">
+          <div class="col-4">
+            <div class="serif" style="font-size: 32px; color: var(--ink); margin-bottom: 4px;">Canvas</div>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--hairline); padding-top: 8px;">
+              <span class="eyebrow">Low-Glare Club Field</span>
+              <span class="mono" style="font-size: 11px;">#1A1918</span>
+            </div>
+            <p class="prose-std" style="font-size: 13px; margin-top: 8px;">
+              Zero card surfaces. 100% open canvas so you never feel trapped inside a spreadsheet.
+            </p>
+          </div>
+
+          <div class="col-4">
+            <div class="serif" style="font-size: 32px; color: var(--ink); margin-bottom: 4px;">Bone</div>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--hairline); padding-top: 8px;">
+              <span class="eyebrow">Primary Script Ink</span>
+              <span class="mono" style="font-size: 11px;">#F5F2ED</span>
+            </div>
+            <p class="prose-std" style="font-size: 13px; margin-top: 8px;">
+              Warm editorial ink tailored for high-speed scanning in dim backstage corridors.
+            </p>
+          </div>
+
+          <div class="col-4">
+            <div class="serif" style="font-size: 32px; color: var(--accent); margin-bottom: 4px;">Sage</div>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--hairline); padding-top: 8px;">
+              <span class="eyebrow" style="color: var(--accent);">Verified Stage Arc</span>
+              <span class="mono" style="font-size: 11px; color: var(--accent);">#9FAF9A</span>
+            </div>
+            <p class="prose-std" style="font-size: 13px; margin-top: 8px;">
+              Single quiet accent budget allocated solely to verified audio peaks and active setlist inclusions.
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ======================================================================
+         FOOTER (Open Canvas + Top Hairline + Official ComedyOS Logo Mark)
+         ====================================================================== -->
+    <footer style="margin-top: 96px; padding-top: 32px; border-top: 1px solid var(--hairline); display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 24px;">
+      <div>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <svg width="32" height="19" viewBox="0 0 64 38" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M64 19C64 8.50659 55.4039 0 44.8 0H19.2C8.59613 0 0 8.50659 0 19C0 29.4934 8.59613 38 19.2 38H44.8C55.4039 38 64 29.4934 64 19ZM20.3953 8.44444C7.53634 8.44466 7.3497 29.4139 20.2828 29.5556H43.0198C47.9573 29.5014 52.2304 25.894 53.263 21.2008C53.3027 21.0198 53.1607 20.8519 52.9734 20.8519H47.4438C47.3044 20.8519 47.1836 20.9469 47.1479 21.0802C46.2937 24.2736 43.5534 26.8166 40.1354 26.8167H23.4026C13.9743 26.8166 13.9264 11.6874 23.4026 11.5462H40.1177C43.5281 11.5975 46.335 14.0923 47.1505 17.2945C47.185 17.4297 47.306 17.5269 47.4469 17.527H52.9896C53.1714 17.5269 53.3116 17.3678 53.2813 17.1904C52.4292 12.223 48.0555 8.44448 42.9068 8.44444H20.3953ZM23.4026 12.5007C15.1378 12.6239 15.1928 25.8621 23.4042 25.8621H40.1177C43.0253 25.862 45.4063 23.7189 46.2214 21.0384C46.2498 20.9447 46.1781 20.8519 46.0792 20.8519H42.05C41.9306 20.8519 41.8234 20.9223 41.7703 21.0281C41.0702 22.4239 39.5241 23.4264 37.849 23.4763H25.4536C19.9646 23.3128 19.9874 14.8108 25.4536 14.6479H37.8469C39.5599 14.6989 41.0947 15.8853 41.7729 17.343C41.8243 17.4531 41.9342 17.5269 42.0568 17.5264L46.0833 17.512C46.1809 17.5116 46.2522 17.4204 46.2255 17.3275C45.4502 14.6294 43.0264 12.5445 40.1177 12.5007H23.4026Z" fill-rule="evenodd" clip-rule="evenodd" fill="var(--ink)"/>
+          </svg>
+          <span class="serif" style="font-size: 22px; color: var(--ink);">Comedy<strong style="font-weight: 600;">OS</strong></span>
+        </div>
+        <p class="mono" style="font-size: 10px; margin-top: 8px;">
+          LOCAL-FIRST STAND-UP WORKSPACE · NO PHONES ON STAGE
+        </p>
+      </div>
+
+      <div style="text-align: right;">
+        <span class="eyebrow" style="display: block; margin-bottom: 6px;">
+          Architectural Invariants
+        </span>
+        <div class="eyebrow" style="display: flex; gap: 14px; color: var(--ink-muted);">
+          <span>Typographic</span>
+          <span style="color: var(--hairline);">/</span>
+          <span>Structural</span>
+          <span style="color: var(--hairline);">/</span>
+          <span>Minimal</span>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- VARIANT HAIRLINE TOAST REGION -->
+  <div class="toast-region" id="toastRegion" aria-live="polite"></div>
+
+  <script>
+    // =========================================================================
+    // 1. HAIRLINE TOAST NOTICES
+    // =========================================================================
+    function showNotice(message, actionLabel = 'Dismiss') {
+      const region = document.getElementById('toastRegion');
+      const item = document.createElement('div');
+      item.className = 'toast-notice';
+      item.innerHTML = `
+        <span style="font-size: 12px; color: var(--ink);">${message}</span>
+        <button type="button" class="btn" style="padding: 4px 10px; font-size: 10px;">${actionLabel}</button>
+      `;
+      item.querySelector('button').onclick = () => item.remove();
+      region.appendChild(item);
+      setTimeout(() => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(6px)';
+        setTimeout(() => item.remove(), 220);
+      }, 4200);
+    }
+
+    // =========================================================================
+    // 2. WAITLIST SUBMISSION (LocalStorage + Cloudflare /api/waitlist fallback)
+    // =========================================================================
+    let queuedComics = 142;
+    let foundingPerkAttached = false;
+
+    async function handleWaitlistSubmit(e) {
+      e.preventDefault();
+      const emailEl = document.getElementById('comicEmail');
+      const clubEl = document.getElementById('comicClub');
+      const btn = document.getElementById('heroSubmitBtn');
+
+      const email = emailEl.value.trim();
+      const club = clubEl.value.trim() || 'Independent Circuit';
+      if (!email) return;
+
+      const payload = {
+        email,
+        club,
+        vip: foundingPerkAttached,
+        timestamp: new Date().toISOString()
+      };
+
+      try {
+        const stored = JSON.parse(localStorage.getItem('comedyos_waitlist') || '[]');
+        stored.push(payload);
+        localStorage.setItem('comedyos_waitlist', JSON.stringify(stored));
+      } catch (_) {}
+
+      try {
+        await fetch('/api/waitlist', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+      } catch (_) {}
+
+      queuedComics += 1;
+      document.getElementById('queueCounterText').textContent = `BATCH 01 · ${queuedComics} COMICS`;
+      btn.innerHTML = `<span>Access Reserved</span><span class="arrow-glyph">✓</span>`;
+      showNotice(
+        foundingPerkAttached
+          ? `${email} registered with Founding 6-Month Pro Pass.`
+          : `${email} (${club}) added to Batch One ledger.`,
+        'OK'
+      );
+
+      emailEl.value = '';
+      clubEl.value = '';
+    }
+
+    // =========================================================================
+    // 3. STAGE 01: SETLIST SEQUENCER & SEGMENTED RUNTIME ARCHITECTURE
+    // =========================================================================
+    const TARGET_SPOT_SECONDS = 420; // 07:00 Target
+    const repertoireJokes = [
+      {
+        id: 'B-402',
+        title: 'Hotel Bathroom Landline',
+        sec: 135, // 02:15
+        role: 'Opener · Polished',
+        tag: 'Hotels · Room Service · Absurdity',
+        excerpt: '“Why do luxury hotels put a landline phone right next to the toilet? Who is making an emergency conference call mid-crisis?”',
+        selected: true
+      },
+      {
+        id: 'B-398',
+        title: 'TSA Ultrasound Technician',
+        sec: 120, // 02:00
+        role: 'Main Setup · Included',
+        tag: 'Airport Authority · Humiliation · Belt Loops',
+        excerpt: '“TSA doesn’t care about safety. They just want to see how dignified you look holding your pants up like an Oliver Twist orphan.”',
+        selected: true
+      },
+      {
+        id: 'B-397',
+        title: 'Parole Officer Self-Checkout',
+        sec: 90, // 01:30
+        role: 'Workshop Bit · Mid-Set',
+        tag: 'Grocery Store · Automation · Guilt',
+        excerpt: '“Self-checkout machines speak with the cadence of a disappointed parole officer: unexpected item in the bagging area.”',
+        selected: true
+      },
+      {
+        id: 'B-395',
+        title: 'Late-Night Pharmacy Receipt',
+        sec: 75, // 01:15
+        role: 'Closer · Polished',
+        tag: 'Late Night · Paper Waste · Routine',
+        excerpt: '“You buy three cough drops at 2 AM and they hand you a CVS receipt long enough to wrap around the equator twice.”',
+        selected: true
+      },
+      {
+        id: 'B-389',
+        title: 'Airline Beverage Cart Standoff',
+        sec: 105, // 01:45
+        role: 'Reserve Bit · Benched',
+        tag: 'Aviation · Social Hostage · Soda',
+        excerpt: '“There is no hostage situation more intense than being trapped in row 18 when the drink cart hits turbulence.”',
+        selected: false
+      }
+    ];
+
+    function formatTime(sec) {
+      const m = String(Math.floor(sec / 60)).padStart(2, '0');
+      const s = String(sec % 60).padStart(2, '0');
+      return `${m}:${s}`;
+    }
+
+    let activeFocusJokeId = 'B-402'; // Primary active bit from layout
+
+    function renderStage01() {
+      renderSetlistTimeline();
+      renderJokeCards();
+    }
+
+    function renderSetlistTimeline() {
+      const bar = document.getElementById('timelineSegmentedBar');
+      const bitCountEl = document.getElementById('bitCountStatus');
+      if (!bar) return;
+
+      const activeJokes = repertoireJokes.filter(j => j.selected);
+      const totalSec = activeJokes.reduce((sum, j) => sum + j.sec, 0);
+
+      if (bitCountEl) {
+        bitCountEl.textContent = `${activeJokes.length} Bits selected`;
+      }
+
+      // Render segments on timeline
+      bar.innerHTML = '';
+      const baseTotal = Math.max(TARGET_SPOT_SECONDS, totalSec);
+
+      activeJokes.forEach(joke => {
+        const pct = (joke.sec / baseTotal) * 100;
+        const seg = document.createElement('div');
+        const isFocused = joke.id === activeFocusJokeId;
+        seg.className = `timeline-segment ${isFocused ? 'is-active-focus' : ''}`;
+        seg.id = `seg-${joke.id}`;
+        seg.style.width = `${pct}%`;
+        seg.title = `${joke.id} · ${joke.title} (${formatTime(joke.sec)})`;
+        seg.innerHTML = `
+          <span class="segment-id">${joke.id}</span>
+          <span class="segment-time">${formatTime(joke.sec)}</span>
+          <div class="segment-bar-line"></div>
+        `;
+        seg.onmouseenter = () => highlightCard(joke.id);
+        seg.onmouseleave = () => unhighlightCard(joke.id);
+        seg.onclick = (e) => {
+          e.stopPropagation();
+          activeFocusJokeId = joke.id;
+          renderSetlistTimeline();
+        };
+        bar.appendChild(seg);
+      });
+
+      // If under target duration, show Open Time segment
+      if (totalSec < TARGET_SPOT_SECONDS) {
+        const remaining = TARGET_SPOT_SECONDS - totalSec;
+        const openPct = (remaining / TARGET_SPOT_SECONDS) * 100;
+        const openSeg = document.createElement('div');
+        openSeg.className = 'timeline-segment is-open-time';
+        openSeg.style.width = `${openPct}%`;
+        openSeg.title = `Unallocated Stage Time: ${formatTime(remaining)}`;
+        openSeg.innerHTML = `
+          <span class="segment-id">+${formatTime(remaining)}</span>
+          <span class="segment-time">OPEN TIME</span>
+          <div class="segment-bar-line"></div>
+        `;
+        bar.appendChild(openSeg);
+      }
+    }
+
+    function renderJokeCards() {
+      const grid = document.getElementById('jokeCardGrid');
+      if (!grid) return;
+
+      grid.innerHTML = '';
+      repertoireJokes.forEach(joke => {
+        const card = document.createElement('div');
+        card.className = `joke-card ${joke.selected ? 'is-selected' : 'is-benched'}`;
+        card.id = `card-${joke.id}`;
+        card.onclick = () => toggleJokeSelection(joke.id);
+
+        card.innerHTML = `
+          <div class="joke-card-meta-top">
+            <div class="joke-card-meta-left">
+              <div class="joke-card-checkbox ${joke.selected ? 'is-checked' : ''}">
+                ${joke.selected ? '✓' : ''}
+              </div>
+              <span class="joke-card-id">${joke.id}</span>
+              <span class="joke-card-role">${joke.role}</span>
+            </div>
+            <span class="joke-card-duration mono">(${formatTime(joke.sec)})</span>
+          </div>
+
+          <h4 class="joke-card-title">${joke.title}</h4>
+
+          <p class="joke-card-excerpt">${joke.excerpt}</p>
+
+          <div class="joke-card-footer">
+            <span class="mono" style="font-size: 10px; color: var(--ink-faint);">${joke.tag}</span>
+          </div>
+        `;
+
+        card.onmouseenter = () => highlightSegment(joke.id);
+        card.onmouseleave = () => unhighlightSegment(joke.id);
+
+        grid.appendChild(card);
+      });
+    }
+
+    function toggleJokeSelection(id) {
+      const joke = repertoireJokes.find(j => j.id === id);
+      if (!joke) return;
+
+      joke.selected = !joke.selected;
+      if (joke.selected) {
+        activeFocusJokeId = joke.id;
+      } else if (activeFocusJokeId === joke.id) {
+        const firstSelected = repertoireJokes.find(j => j.selected);
+        activeFocusJokeId = firstSelected ? firstSelected.id : null;
+      }
+      renderStage01();
+
+      if (joke.selected) {
+        showNotice(`“${joke.title}” (${joke.id}) added to tonight’s running order.`, 'OK');
+      } else {
+        showNotice(`“${joke.title}” (${joke.id}) benched in green room reserve.`, 'Undo');
+      }
+    }
+
+    function highlightCard(id) {
+      const card = document.getElementById(`card-${id}`);
+      const seg = document.getElementById(`seg-${id}`);
+      if (card) card.classList.add('is-hovered');
+      if (seg) seg.classList.add('is-hovered');
+    }
+
+    function unhighlightCard(id) {
+      const card = document.getElementById(`card-${id}`);
+      const seg = document.getElementById(`seg-${id}`);
+      if (card) card.classList.remove('is-hovered');
+      if (seg) seg.classList.remove('is-hovered');
+    }
+
+    function highlightSegment(id) {
+      const seg = document.getElementById(`seg-${id}`);
+      if (seg) seg.classList.add('is-hovered');
+    }
+
+    function unhighlightSegment(id) {
+      const seg = document.getElementById(`seg-${id}`);
+      if (seg) seg.classList.remove('is-hovered');
+    }
+
+    // =========================================================================
+    // 4. STAGE 03: SYNTHESIZED AUDIO WAVEFORM & AUDIENCE REACTION DIFF ENGINE
+    // =========================================================================
+    // Synthesized 48-band audio telemetry profile (0 to 30 seconds):
+    // 00:00 - 00:09 (Bars 0-14): Setup delivery ~ -15dB (heights 18-32px)
+    // 00:10 - 00:18 (Bars 15-28): Unscripted Riff + LAUGH PEAK SURGE ~ -3.8dB (heights 54-82px, sage)
+    // 00:19 - 00:24 (Bars 29-37): Skipped setup dead air ~ -26dB (heights 6-12px, terracotta)
+    // 00:25 - 00:30 (Bars 38-47): Closer delivery + chuckle return ~ -11dB (heights 28-44px)
+
+    const TOTAL_BARS = 48;
+    const TOTAL_DURATION_SEC = 30;
+    const waveformData = [
+      // 00:00 - 00:09: Setup delivery (baseline club audio)
+      { h: 22, type: 'setup', db: -16.2 },
+      { h: 26, type: 'setup', db: -15.4 },
+      { h: 18, type: 'setup', db: -17.8 },
+      { h: 28, type: 'setup', db: -14.9 },
+      { h: 32, type: 'setup', db: -14.1 },
+      { h: 24, type: 'setup', db: -15.8 },
+      { h: 20, type: 'setup', db: -16.9 },
+      { h: 30, type: 'setup', db: -14.5 },
+      { h: 27, type: 'setup', db: -15.0 },
+      { h: 34, type: 'setup', db: -13.8 },
+      { h: 29, type: 'setup', db: -14.6 },
+      { h: 22, type: 'setup', db: -16.0 },
+      { h: 31, type: 'setup', db: -14.2 },
+      { h: 36, type: 'setup', db: -13.5 },
+      { h: 42, type: 'setup', db: -12.1 },
+
+      // 00:10 - 00:18: Unprompted Riff ("Oliver Twist orphan") + LAUGH PEAK SURGE (+8.2dB surge)
+      { h: 56, type: 'laugh-peak', db: -7.4 },
+      { h: 68, type: 'laugh-peak', db: -5.1 },
+      { h: 78, type: 'laugh-peak', db: -4.0 },
+      { h: 84, type: 'laugh-peak', db: -3.8 }, // Absolute peak roar
+      { h: 82, type: 'laugh-peak', db: -3.9 },
+      { h: 76, type: 'laugh-peak', db: -4.3 },
+      { h: 70, type: 'laugh-peak', db: -4.8 },
+      { h: 64, type: 'laugh-peak', db: -5.6 },
+      { h: 58, type: 'laugh-peak', db: -6.8 },
+      { h: 52, type: 'laugh-peak', db: -7.9 },
+      { h: 46, type: 'laugh-peak', db: -9.2 },
+      { h: 38, type: 'laugh-peak', db: -11.0 },
+      { h: 30, type: 'laugh-peak', db: -13.4 },
+      { h: 20, type: 'laugh-peak', db: -16.5 },
+
+      // 00:19 - 00:24: Skipped setup / dead air valley (omitted tag on cold tile)
+      { h: 10, type: 'silence-drop', db: -24.2 },
+      { h: 8,  type: 'silence-drop', db: -26.0 },
+      { h: 7,  type: 'silence-drop', db: -27.5 },
+      { h: 8,  type: 'silence-drop', db: -26.8 },
+      { h: 9,  type: 'silence-drop', db: -25.3 },
+      { h: 11, type: 'silence-drop', db: -23.1 },
+      { h: 14, type: 'silence-drop', db: -20.4 },
+      { h: 18, type: 'silence-drop', db: -18.2 },
+
+      // 00:25 - 00:30: Closer delivery + recovery chuckle
+      { h: 26, type: 'setup', db: -15.1 },
+      { h: 33, type: 'setup', db: -13.9 },
+      { h: 40, type: 'laugh-peak', db: -10.8 },
+      { h: 46, type: 'laugh-peak', db: -9.4 },
+      { h: 38, type: 'laugh-peak', db: -11.2 },
+      { h: 32, type: 'setup', db: -14.0 },
+      { h: 28, type: 'setup', db: -15.2 },
+      { h: 22, type: 'setup', db: -16.8 },
+      { h: 18, type: 'setup', db: -18.0 },
+      { h: 14, type: 'setup', db: -20.1 }
+    ];
+
+    let currentPlaySec = 14;
+    let isPlayingAudio = false;
+    let playbackInterval = null;
+
+    function buildWaveformDOM() {
+      const container = document.getElementById('waveformCanvas');
+      // Keep playhead, clear bars
+      const playhead = document.getElementById('waveformPlayhead');
+      container.innerHTML = '';
+      container.appendChild(playhead);
+
+      waveformData.forEach((band, idx) => {
+        const bar = document.createElement('div');
+        bar.className = `waveform-bar is-${band.type}`;
+        bar.style.height = `${band.h}px`;
+        bar.dataset.index = idx;
+        bar.dataset.db = band.db;
+        bar.dataset.type = band.type;
+        container.appendChild(bar);
+      });
+      syncPlayheadToSec(currentPlaySec);
+    }
+
+    function syncPlayheadToSec(sec) {
+      currentPlaySec = Math.max(0, Math.min(TOTAL_DURATION_SEC, sec));
+      const pct = (currentPlaySec / TOTAL_DURATION_SEC) * 100;
+      const playhead = document.getElementById('waveformPlayhead');
+      const liveTimeText = document.getElementById('waveformLiveTime');
+      const decibelMeter = document.getElementById('decibelMeter');
+
+      if (playhead) playhead.style.left = `${pct}%`;
+      if (liveTimeText) {
+        const s = String(Math.floor(currentPlaySec)).padStart(2, '0');
+        liveTimeText.textContent = `00:${s} / 00:30`;
+      }
+
+      // Find closest bar data
+      const barIndex = Math.min(waveformData.length - 1, Math.floor((currentPlaySec / TOTAL_DURATION_SEC) * waveformData.length));
+      const currentBand = waveformData[barIndex];
+
+      // Update active highlight on bars
+      const allBars = document.querySelectorAll('.waveform-bar');
+      allBars.forEach((b, i) => {
+        if (i === barIndex) b.classList.add('is-active-head');
+        else b.classList.remove('is-active-head');
+      });
+
+      // Update Decibel Meter & HUD Telemetry
+      const hudPeak = document.getElementById('hudPeakVol');
+      const hudDur = document.getElementById('hudLaughDur');
+      const hudAdj = document.getElementById('hudScriptAdj');
+      const hudMissed = document.getElementById('hudMissedBeat');
+      const addedTagEl = document.getElementById('diffAddedTag');
+      const omittedTagEl = document.getElementById('diffOmittedTag');
+
+      if (currentBand.type === 'laugh-peak') {
+        decibelMeter.textContent = `ROOM PEAK: ${currentBand.db} dB · LAUGH SURGE (+8.2dB)`;
+        decibelMeter.style.color = 'var(--accent)';
+        if (hudPeak) hudPeak.textContent = `${currentBand.db} dB`;
+        if (hudDur) hudDur.textContent = '5.2s Roll';
+        if (hudAdj) { hudAdj.textContent = 'Promoted'; hudAdj.style.color = 'var(--accent)'; }
+        if (addedTagEl) addedTagEl.classList.add('is-highlighted');
+        if (omittedTagEl) omittedTagEl.classList.remove('is-highlighted');
+      } else if (currentBand.type === 'silence-drop') {
+        decibelMeter.textContent = `ROOM VALLEY: ${currentBand.db} dB · DEAD AIR (SKIPPED TAG)`;
+        decibelMeter.style.color = 'var(--revision)';
+        if (hudPeak) hudPeak.textContent = `${currentBand.db} dB`;
+        if (hudDur) hudDur.textContent = '0.0s (Silent)';
+        if (hudMissed) { hudMissed.textContent = 'Re-Queued'; hudMissed.style.color = 'var(--revision)'; }
+        if (omittedTagEl) omittedTagEl.classList.add('is-highlighted');
+        if (addedTagEl) addedTagEl.classList.remove('is-highlighted');
+      } else {
+        decibelMeter.textContent = `ROOM BASELINE: ${currentBand.db} dB · SPOKEN SETUP`;
+        decibelMeter.style.color = 'var(--ink-faint)';
+        if (hudPeak) hudPeak.textContent = `${currentBand.db} dB`;
+        if (hudDur) hudDur.textContent = 'Ambient Tone';
+        if (addedTagEl) addedTagEl.classList.remove('is-highlighted');
+        if (omittedTagEl) omittedTagEl.classList.remove('is-highlighted');
+      }
+    }
+
+    function handleWaveformClick(e) {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const pct = Math.max(0, Math.min(1, clickX / rect.width));
+      const sec = Math.round(pct * TOTAL_DURATION_SEC);
+      syncPlayheadToSec(sec);
+    }
+
+    function handleWaveformHover(e) {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const hoverX = e.clientX - rect.left;
+      const pct = Math.max(0, Math.min(1, hoverX / rect.width));
+      const sec = Math.round(pct * TOTAL_DURATION_SEC);
+      syncPlayheadToSec(sec);
+    }
+
+    function handleWaveformLeave() {
+      // Return to unscripted peak if not currently playing
+      if (!isPlayingAudio) {
+        syncPlayheadToSec(14);
+      }
+    }
+
+    function scrubToSecond(sec) {
+      syncPlayheadToSec(sec);
+    }
+
+    function toggleWaveformPlayback() {
+      const btnLabel = document.getElementById('playbackBtnLabel');
+      if (isPlayingAudio) {
+        clearInterval(playbackInterval);
+        isPlayingAudio = false;
+        btnLabel.textContent = '▶ Resume Room Playback';
+      } else {
+        isPlayingAudio = true;
+        btnLabel.textContent = '⏸ Pause Playback';
+        if (currentPlaySec >= TOTAL_DURATION_SEC) currentPlaySec = 0;
+        playbackInterval = setInterval(() => {
+          currentPlaySec += 0.5;
+          if (currentPlaySec > TOTAL_DURATION_SEC) {
+            currentPlaySec = 0;
+          }
+          syncPlayheadToSec(currentPlaySec);
+        }, 120);
+      }
+    }
+
+    // =========================================================================
+    // 5. UNIFIED MORPHING CAPTURE BAR (Voice memo -> Text ledger switch)
+    // =========================================================================
+    function handleMorphTyping(val) {
+      const btn = document.getElementById('morphActionBtn');
+      const hint = document.getElementById('morphStateHint');
+      if (val.trim().length > 0) {
+        btn.className = 'btn btn-primary';
+        btn.innerHTML = '<span>Save Premise</span><span class="arrow-glyph">→</span>';
+        hint.textContent = 'MODE: TEXT LEDGER';
+        hint.style.color = 'var(--accent)';
+      } else {
+        btn.className = 'btn';
+        btn.innerHTML = '<span>Record 5s Audio</span>';
+        hint.textContent = 'MODE: VOICE MEMO';
+        hint.style.color = 'var(--ink-faint)';
+      }
+    }
+
+    function executeMorphCapture() {
+      const input = document.getElementById('morphDraftInput');
+      const val = input.value.trim();
+      if (val.length > 0) {
+        showNotice(`Premise “${val}” indexed into Lexicon Context Harness.`, 'Undo');
+        input.value = '';
+        handleMorphTyping('');
+      } else {
+        showNotice('Capturing 5-second pocket audio memo for local transcription...', 'Stop');
+      }
+    }
+
+    // =========================================================================
+    // 6. SEMANTIC MEMORY RECALL SELECTOR
+    // =========================================================================
+    function selectMemoryCue(cue, btnEl) {
+      btnEl.parentElement.querySelectorAll('.btn').forEach((b) => b.classList.remove('is-active'));
+      btnEl.classList.add('is-active');
+
+      const passage = document.getElementById('recallResultPassage');
+      const harness = document.getElementById('recallHarnessMeta');
+      const score = document.getElementById('recallScoreMeta');
+
+      if (cue === 'airport') {
+        passage.textContent = '“TSA doesn’t care about safety. They just want to see how dignified you look holding your pants up by your belt loops like an Oliver Twist orphan.”';
+        harness.textContent = 'Context Harness: Airport Authority · Humiliation · Belt Loops';
+        score.textContent = 'B-398 · 94% MATCH';
+      } else if (cue === 'grocery') {
+        passage.textContent = '“Self-checkout machines speak with the cadence of a disappointed parole officer: unexpected item in the bagging area.”';
+        harness.textContent = 'Context Harness: Grocery Store · Automation · Guilt';
+        score.textContent = 'B-397 · 92% MATCH';
+      } else {
+        passage.textContent = '“Why do luxury hotels put a landline phone right next to the toilet? Yeah, front desk—send up a priest and two more towels.”';
+        harness.textContent = 'Context Harness: Hotels · Room Service · Absurdity';
+        score.textContent = 'B-402 · 96% MATCH';
+      }
+    }
+
+    // =========================================================================
+    // 7. ATTACH FOUNDING COHORT 6-MONTH PRO PASS
+    // =========================================================================
+    function attachFoundingPerk() {
+      foundingPerkAttached = true;
+      const btn = document.getElementById('vipAttachBtn');
+      btn.classList.add('is-active');
+      btn.innerHTML = '<span>6-Month Pro Pass Attached</span><span class="arrow-glyph">✓</span>';
+      showNotice('Founding 6-Month Pro Pass attached. Enter your email to lock it in.', 'OK');
+      const emailEl = document.getElementById('comicEmail');
+      emailEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(() => emailEl.focus(), 300);
+    }
+
+    // Initialize on load
+    window.addEventListener('DOMContentLoaded', () => {
+      renderStage01();
+      buildWaveformDOM();
+    });
+  </script>
+</body>
+</html>

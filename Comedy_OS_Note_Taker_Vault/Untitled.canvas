@@ -1,0 +1,10 @@
+{
+	"nodes":[
+		{"id":"ea80a07995b53970","x":-980,"y":-2840,"width":3580,"height":3240,"type":"file","file":"Comedy_OS_Note_Taker_Vault/00_Comedy_OS_Note_Taker_Architecture.md"},
+		{"id":"a97ccf82def0fc4b","x":-400,"y":680,"width":640,"height":2508,"type":"file","file":"Comedy_OS_Note_Taker_Vault/01_Ghost_Mode_Distraction_Shield.md"},
+		{"id":"b08d6e86ee5e1638","x":380,"y":1320,"width":709,"height":412,"type":"text","text":"[Backstage / Stage Entry]\n         │\n         ▼\n ┌───────────────┐\n │ GHOST MODE ON │ ──► Android DND Policy (Priority Only / Alarms Suppressed)\n └───────┬───────┘ ──► Cellular / Wi-Fi Sync Deferred to Local SQLite Queue\n         │         ──► Zero Popup Dialogs (All non-critical UI toasts silenced)\n         │         ──► Display Keep-Awake with OLED True-Black Theme\n         ▼\n[Stage Performance & Offline Capture]\n         │\n         ▼\n ┌───────────────┐\n │ GHOST MODE OFF│ ──► Background Delta Sync to Cloud (Firestore + Vertex AI)\n └───────────────┘"}
+	],
+	"edges":[
+		{"id":"646222f95e8b2fd1","fromNode":"a97ccf82def0fc4b","fromSide":"right","toNode":"b08d6e86ee5e1638","toSide":"left"}
+	]
+}

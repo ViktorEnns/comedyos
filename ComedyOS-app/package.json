@@ -1,0 +1,14 @@
+{
+  "name": "comedyos-app",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "map": "node scripts/update-map.mjs",
+    "map:audit": "npx depcruise src --config .dependency-cruiser.cjs"
+  },
+  "devDependencies": {
+    "dependency-cruiser": "^16.9.0",
+    "typescript": "^5.7.0"
+  }
+}

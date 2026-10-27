@@ -1,0 +1,11 @@
+name = "comedy-os-waitlist"
+pages_build_output_dir = "."
+compatibility_date = "2026-04-01"
+
+# Optional Cloudflare KV Namespace binding for edge storage alongside Google Sheets:
+# [[kv_namespaces]]
+# binding = "WAITLIST_KV"
+# id = "YOUR_CLOUDFLARE_KV_NAMESPACE_ID"
+
+# In Cloudflare Pages Dashboard -> Settings -> Environment Variables, add:
+# GOOGLE_SHEET_WEBHOOK_URL = "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec"

@@ -1,0 +1,92 @@
+{
+	"nodes": [
+		{
+			"id": "master_class_node",
+			"type": "file",
+			"file": "Class_Diagrams/00_Master_Domain_Class_Diagram.md",
+			"x": -450,
+			"y": -900,
+			"width": 900,
+			"height": 760,
+			"color": "6"
+		},
+		{
+			"id": "ingest_class_node",
+			"type": "file",
+			"file": "Class_Diagrams/01_Unified_Ingestion_and_Capture_Classes.md",
+			"x": -1850,
+			"y": 40,
+			"width": 860,
+			"height": 840,
+			"color": "3"
+		},
+		{
+			"id": "audio_class_node",
+			"type": "file",
+			"file": "Class_Diagrams/02_Audio_DSP_and_Performance_Tape_Classes.md",
+			"x": -920,
+			"y": 40,
+			"width": 860,
+			"height": 840,
+			"color": "4"
+		},
+		{
+			"id": "bridge_class_node",
+			"type": "file",
+			"file": "Class_Diagrams/03_Comparator_Bridge_and_Diff_Classes.md",
+			"x": 10,
+			"y": 40,
+			"width": 860,
+			"height": 840,
+			"color": "2"
+		},
+		{
+			"id": "vault_class_node",
+			"type": "file",
+			"file": "Class_Diagrams/04_Atomic_Bit_Database_and_Lexicon_Classes.md",
+			"x": 940,
+			"y": 40,
+			"width": 860,
+			"height": 840,
+			"color": "5"
+		}
+	],
+	"edges": [
+		{
+			"id": "e_master_to_ingest",
+			"fromNode": "master_class_node",
+			"fromSide": "bottom",
+			"toNode": "ingest_class_node",
+			"toSide": "top",
+			"label": "Layer 1 & 2: Unified Ingest & Notation",
+			"color": "3"
+		},
+		{
+			"id": "e_master_to_audio",
+			"fromNode": "master_class_node",
+			"fromSide": "bottom",
+			"toNode": "audio_class_node",
+			"toSide": "top",
+			"label": "Layer 1: Audio DSP & Set Tape",
+			"color": "4"
+		},
+		{
+			"id": "e_master_to_bridge",
+			"fromNode": "master_class_node",
+			"fromSide": "bottom",
+			"toNode": "bridge_class_node",
+			"toSide": "top",
+			"label": "Layer 3: Comparator & Diff Engine",
+			"color": "2"
+		},
+		{
+			"id": "e_master_to_vault",
+			"fromNode": "master_class_node",
+			"fromSide": "bottom",
+			"toNode": "vault_class_node",
+			"toSide": "top",
+			"label": "Layer 4: Bit Vault, Lexicon & Highlighter",
+			"color": "5"
+		}
+	]
+}

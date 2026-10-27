@@ -1,0 +1,490 @@
+{
+	"nodes": [
+		{
+			"id": "main_title",
+			"type": "text",
+			"text": "# 🧠 Comedy OS — Stand-Up Beliefs Engine\n### *Dual-Pathway Cognitive Architecture: Productive Mastery vs. Destructive Traps*\n\nStand-up mastery requires systematic deconditioning of cognitive distortions and adopting an empirical laboratory mindset.\n\n- 🟢 **[[Constructive 'Good' Beliefs|Productive Beliefs Outline]]**\n- 🔴 **[[Destructive_Beliefs|Destructive Beliefs Outline]]**\n- 🗺️ **[[UX/Visual_Architecture_Flowchart|Visual Architecture Flowchart]]**\n- 💥 **[[?? Persona 1 Pain Spectrum - Bombing|Persona 1 Pain Spectrum]]**",
+			"x": -450,
+			"y": -750,
+			"width": 900,
+			"height": 220,
+			"color": "6"
+		},
+		{
+			"id": "good_header",
+			"type": "text",
+			"text": "# 🟢 Productive (\"Good\") Beliefs That Drive Mastery\n*The operational mindset of elite joke architects (Louis C.K., Carlin, Leno, Silverman, Brennan, Morril)*",
+			"x": -2500,
+			"y": -460,
+			"width": 1600,
+			"height": 110,
+			"color": "4"
+		},
+		{
+			"id": "good_note",
+			"type": "file",
+			"file": "UX/User Research/Beliefs/Constructive 'Good' Beliefs.md",
+			"x": -2500,
+			"y": -310,
+			"width": 780,
+			"height": 520,
+			"color": "4"
+		},
+		{
+			"id": "good_principles",
+			"type": "text",
+			"text": "### ⚡ 5 Deep Psychological Pillars (User Research Data)\n\n1. **The stage is a laboratory, not a referendum on my worth** *(Louis C.K. & Sarah Silverman)*\n   - Bombing is neutral chemical test data, not humiliation.\n2. **I am the king of the room; never give the audience the upper hand** *(George Carlin & Helen Mirren)*\n   - Status held by authority relaxes crowds into laughter.\n3. **Protective Delusion (Early) + Low Self-Esteem Listening (Late)** *(Sam Morril & Jay Leno)*\n   - Audacity to start; ego-free humility to edit.\n4. **Silence and discomfort are where growth happens** *(Louis C.K.)*\n   - Standing in 90s dead air breaks panic; kills reliance on cheap tricks.\n5. **Comparison is the thief of joy — privilege the work** *(Jimmy Carr, Neal Brennan)*\n   - Focus entirely on daily writing output and stage reps.",
+			"x": -1680,
+			"y": -310,
+			"width": 780,
+			"height": 520,
+			"color": "4"
+		},
+		{
+			"id": "good_b1",
+			"type": "text",
+			"text": "### 1. Bombing is painful but necessary\n- Unavoidable rite of passage & diagnostic tool.\n- Revealing premise/cadence breakdown.\n- **Addressed by:** Silence & Waveform Telemetry",
+			"x": -2500,
+			"y": 270,
+			"width": 340,
+			"height": 160,
+			"color": "4"
+		},
+		{
+			"id": "good_b2",
+			"type": "text",
+			"text": "### 2. Working out a set is necessary\n- Deliberate sequence, momentum ramps & callbacks.\n- Engineering reps, not haphazard winging.\n- **Addressed by:** Setlist Timeline & State Machine",
+			"x": -2120,
+			"y": 270,
+			"width": 340,
+			"height": 160,
+			"color": "4"
+		},
+		{
+			"id": "good_b3",
+			"type": "text",
+			"text": "### 3. Explaining context matters\n- Bringing the audience with you on a trip.\n- Clear premise setup in first 10 seconds.\n- **Addressed by:** Delivery Notation & Diff View",
+			"x": -1740,
+			"y": 270,
+			"width": 340,
+			"height": 160,
+			"color": "4"
+		},
+		{
+			"id": "good_b4",
+			"type": "text",
+			"text": "### 4. Brevity & precision of thought win\n- Economy of syllables; cutting throat-clearing fluff.\n- Maximizing Laughs-Per-Minute (LPM).\n- **Addressed by:** Distraction-Free Pad & Diff Report",
+			"x": -1360,
+			"y": 270,
+			"width": 340,
+			"height": 160,
+			"color": "4"
+		},
+		{
+			"id": "good_b5",
+			"type": "text",
+			"text": "### 5. Gimmicks need clear purpose\n- Props or strange voices cannot hide weak writing.\n- Purist stand-up craft first.\n- **Status:** Discussion point (Scope boundary)",
+			"x": -980,
+			"y": 270,
+			"width": 340,
+			"height": 160,
+			"color": "3"
+		},
+		{
+			"id": "good_b6",
+			"type": "text",
+			"text": "### 6. Punching up jokes is vital\n- Layering 3 to 5 tags, alternates & callbacks.\n- Turning 15s chuckle into a 90s showstopper.\n- **Addressed by:** Atomic Bit DB & Dropped Tag Alerts",
+			"x": -2500,
+			"y": 470,
+			"width": 340,
+			"height": 160,
+			"color": "4"
+		},
+		{
+			"id": "good_b7",
+			"type": "text",
+			"text": "### 7. Asking peers for punch ups\n- Solitude in writing, communal green room feedback.\n- Low-ego listening reveals blindspots.\n- **Addressed by:** AI Co-Writer / Peer Pitching",
+			"x": -2120,
+			"y": 470,
+			"width": 340,
+			"height": 160,
+			"color": "4"
+		},
+		{
+			"id": "good_b8",
+			"type": "text",
+			"text": "### 8. Listening to own sets to improve\n- 'The tape never lies' (Glaser, Leno, Maron).\n- Fast-track B-material into A-material.\n- **Addressed by:** Whisper ASR & Tape Chat",
+			"x": -1740,
+			"y": 470,
+			"width": 340,
+			"height": 160,
+			"color": "4"
+		},
+		{
+			"id": "good_b9",
+			"type": "text",
+			"text": "### 9. Reusing old bits is a problem\n- Clinging to 5-year-old banker hits causes stagnation.\n- Root cause: fear of bombing with raw material.\n- **Addressed by:** Joke State Machine (Retire) & Freshness",
+			"x": -1360,
+			"y": 470,
+			"width": 340,
+			"height": 160,
+			"color": "4"
+		},
+		{
+			"id": "feat_diff",
+			"type": "file",
+			"file": "Comedy_OS_Note_Taker_Vault/31_Visual_Diff_Report.md",
+			"x": -2500,
+			"y": 700,
+			"width": 360,
+			"height": 280
+		},
+		{
+			"id": "feat_waveform",
+			"type": "file",
+			"file": "Comedy_OS_Note_Taker_Vault/33_Reaction_Waveform_Alignment.md",
+			"x": -2100,
+			"y": 700,
+			"width": 360,
+			"height": 280
+		},
+		{
+			"id": "feat_isolation",
+			"type": "file",
+			"file": "Comedy_OS_Note_Taker_Vault/11_Audience_Laughter_and_Silence_Isolation.md",
+			"x": -1700,
+			"y": 700,
+			"width": 360,
+			"height": 280
+		},
+		{
+			"id": "feat_state",
+			"type": "file",
+			"file": "Comedy_OS_Note_Taker_Vault/41_Jokes_As_Living_Objects_State_Machine.md",
+			"x": -1300,
+			"y": 700,
+			"width": 360,
+			"height": 280
+		},
+		{
+			"id": "feat_timeline",
+			"type": "file",
+			"file": "Comedy_OS_Note_Taker_Vault/42_Drag_And_Drop_Modular_Setlist_Timeline.md",
+			"x": -900,
+			"y": 700,
+			"width": 360,
+			"height": 280
+		},
+		{
+			"id": "bad_header",
+			"type": "text",
+			"text": "# 🔴 Destructive (\"Bad\") Beliefs That Stall Careers\n*Cognitive distortions & ego traps that cause amateur attrition (Kill Tony research, veteran debriefs)*",
+			"x": 900,
+			"y": -460,
+			"width": 1600,
+			"height": 110,
+			"color": "1"
+		},
+		{
+			"id": "bad_note",
+			"type": "file",
+			"file": "UX/User Research/Beliefs/Destructive_Beliefs.md",
+			"x": 900,
+			"y": -310,
+			"width": 780,
+			"height": 520,
+			"color": "1"
+		},
+		{
+			"id": "bad_checklist",
+			"type": "text",
+			"text": "### 🛑 Destructive Beliefs Checklist (FigJam Sticky Notes)\n\n- **\"I'll get good on stage / wing it\"** *(destroys eye contact & pacing)*\n- **\"If I heal my trauma I won't be funny anymore\"** *(burnout trap)*\n- **\"Scripting is not authentic comedy\"** *(musical rehearsal is required)*\n- **\"If audience doesn't laugh, they're dumb\"** *(external blame trap)*\n- **\"If audience laughs, joke is good\"** *(clapter / cheap trick rut)*\n- **\"Comedy is not a real job\"** *(craft vs hobby confusion)*\n- **\"Successful comics are just lucky\"** *(ignoring 10,000 reps)*\n- **\"You must write every day\"** *(guilt vs sustainable rhythm)*\n- **\"Listening to own tapes is cringe/unbearable\"** *(#1 growth bottleneck)*\n- **\"Too late for me to start / too old\"** *(fear of beginner status)*\n- **\"Asking for feedback makes you look weak\"** *(isolation trap)*",
+			"x": 1720,
+			"y": -310,
+			"width": 780,
+			"height": 520,
+			"color": "2"
+		},
+		{
+			"id": "bad_b1",
+			"type": "text",
+			"text": "### 1. Tape Avoidance / Cringe Barrier\n- \"Listening to myself bomb is too humiliating.\"\n- #1 career bottleneck; voice memos rot unopened.\n- **Addressed by:** Whisper ASR Diff & Set Tape Chat",
+			"x": 850,
+			"y": 270,
+			"width": 340,
+			"height": 160,
+			"color": "1"
+		},
+		{
+			"id": "bad_b2",
+			"type": "text",
+			"text": "### 2. External Blame Trap\n- \"The room was dead; the audience is dumb.\"\n- Blinds comic to weak setup, missing context & pacing.\n- **Addressed by:** Objective DSP Decibel Logging",
+			"x": 1230,
+			"y": 270,
+			"width": 340,
+			"height": 160,
+			"color": "1"
+		},
+		{
+			"id": "bad_b3",
+			"type": "text",
+			"text": "### 3. Wing-It Delusion\n- \"I don't need to memorize; I'll riff or read notes.\"\n- Destroys eye contact, cadence & authority.\n- **Addressed by:** Setlist Timeline & Dropped Tag Alerts",
+			"x": 1610,
+			"y": 270,
+			"width": 340,
+			"height": 160,
+			"color": "1"
+		},
+		{
+			"id": "bad_b4",
+			"type": "text",
+			"text": "### 4. Clapter & Cheap Laugh Trap\n- \"Every laugh means the material is making me better.\"\n- Addicted to easy crowd pandering & local hits.\n- **Addressed by:** Tier-A Roar vs Polite Chuckle Isolation",
+			"x": 1990,
+			"y": 270,
+			"width": 340,
+			"height": 160,
+			"color": "1"
+		},
+		{
+			"id": "bad_b5",
+			"type": "text",
+			"text": "### 5. Tortured Artist Myth\n- \"If I heal my trauma, I'll lose my edge.\"\n- Superstition leading to burnout & substance paralysis.\n- **Status:** Discussion point (Ghost Mode / Wellness)",
+			"x": 2370,
+			"y": 270,
+			"width": 340,
+			"height": 160,
+			"color": "2"
+		},
+		{
+			"id": "bad_b6",
+			"type": "text",
+			"text": "### 6. Vulnerability as Weakness\n- Putting on an aggressive shock-jock mask.\n- Audience turns hostile against fake posturing.\n- **Addressed by:** Delivery Notation Engine (`🗣️`, `🤸`)",
+			"x": 850,
+			"y": 470,
+			"width": 340,
+			"height": 160,
+			"color": "2"
+		},
+		{
+			"id": "bad_b7",
+			"type": "text",
+			"text": "### 7. Bombing is Avoidable\n- Terrified of dead air; avoiding workshop bits.\n- Stagnation in safe comfort routines.\n- **Addressed by:** Composure Telemetry & Skid Recovery",
+			"x": 1230,
+			"y": 470,
+			"width": 340,
+			"height": 160,
+			"color": "1"
+		},
+		{
+			"id": "bad_b8",
+			"type": "text",
+			"text": "### 8. Reference & Gimmick Blindspots\n- \"The audience knows the reference\" / Prop crutch.\n- Expecting audience to read minds without context.\n- **Addressed by:** Context Tagging & Purist Craft Policy",
+			"x": 1610,
+			"y": 470,
+			"width": 340,
+			"height": 160,
+			"color": "2"
+		},
+		{
+			"id": "bad_b9",
+			"type": "text",
+			"text": "### 9. Stagnant Set Trap\n- \"Editing is optional; bits that work never get cut.\"\n- Relying on old hits stops second hour creation.\n- **Addressed by:** Living Objects State Machine (Retirement)",
+			"x": 1990,
+			"y": 470,
+			"width": 340,
+			"height": 160,
+			"color": "1"
+		},
+		{
+			"id": "bad_b10",
+			"type": "text",
+			"text": "### 10. Stealing & Isolation Trap\n- Stealing jokes / Asking for feedback makes you weak.\n- Reputational ruin & artistic dead-ends.\n- **Addressed by:** Bit Cryptographic Provenance & AI Pitching",
+			"x": 2370,
+			"y": 470,
+			"width": 340,
+			"height": 160,
+			"color": "2"
+		},
+		{
+			"id": "feat_whisper",
+			"type": "file",
+			"file": "Comedy_OS_Note_Taker_Vault/13_Whisper_ASR_Speech_To_Text.md",
+			"x": 850,
+			"y": 700,
+			"width": 360,
+			"height": 280
+		},
+		{
+			"id": "feat_chat",
+			"type": "file",
+			"file": "Comedy_OS_Note_Taker_Vault/14_Conversational_Chat_With_Set_Tape.md",
+			"x": 1240,
+			"y": 700,
+			"width": 360,
+			"height": 280
+		},
+		{
+			"id": "feat_dropped",
+			"type": "file",
+			"file": "Comedy_OS_Note_Taker_Vault/32_Dropped_Tag_Alerts.md",
+			"x": 1630,
+			"y": 700,
+			"width": 360,
+			"height": 280
+		},
+		{
+			"id": "feat_ghost",
+			"type": "file",
+			"file": "Comedy_OS_Note_Taker_Vault/01_Ghost_Mode_Distraction_Shield.md",
+			"x": 2020,
+			"y": 700,
+			"width": 360,
+			"height": 280
+		},
+		{
+			"id": "feat_bitdb",
+			"type": "file",
+			"file": "Comedy_OS_Note_Taker_Vault/40_Atomic_Bit_Database.md",
+			"x": 2410,
+			"y": 700,
+			"width": 360,
+			"height": 280
+		}
+	],
+	"edges": [
+		{
+			"id": "edge_title_to_good",
+			"fromNode": "main_title",
+			"fromSide": "left",
+			"toNode": "good_header",
+			"toSide": "right",
+			"label": "Mastery Pathway",
+			"color": "4"
+		},
+		{
+			"id": "edge_title_to_bad",
+			"fromNode": "main_title",
+			"fromSide": "right",
+			"toNode": "bad_header",
+			"toSide": "left",
+			"label": "Distortion Pathway",
+			"color": "1"
+		},
+		{
+			"id": "edge_good_to_note",
+			"fromNode": "good_header",
+			"fromSide": "bottom",
+			"toNode": "good_note",
+			"toSide": "top",
+			"label": "Comprehensive Research Outline",
+			"color": "4"
+		},
+		{
+			"id": "edge_good_to_principles",
+			"fromNode": "good_header",
+			"fromSide": "bottom",
+			"toNode": "good_principles",
+			"toSide": "top",
+			"label": "5 Deep Pillars",
+			"color": "4"
+		},
+		{
+			"id": "edge_good_b1_to_diff",
+			"fromNode": "good_b1",
+			"fromSide": "bottom",
+			"toNode": "feat_diff",
+			"toSide": "top",
+			"label": "Skid Recovery Riffing"
+		},
+		{
+			"id": "edge_good_b1_to_waveform",
+			"fromNode": "good_b1",
+			"fromSide": "bottom",
+			"toNode": "feat_waveform",
+			"toSide": "top",
+			"label": "Composure Telemetry"
+		},
+		{
+			"id": "edge_good_b2_to_state",
+			"fromNode": "good_b2",
+			"fromSide": "bottom",
+			"toNode": "feat_state",
+			"toSide": "top",
+			"label": "Draft -> Stage Ready"
+		},
+		{
+			"id": "edge_good_b2_to_timeline",
+			"fromNode": "good_b2",
+			"fromSide": "bottom",
+			"toNode": "feat_timeline",
+			"toSide": "top",
+			"label": "Modular Set Pacing"
+		},
+		{
+			"id": "edge_good_b8_to_isolation",
+			"fromNode": "good_b8",
+			"fromSide": "bottom",
+			"toNode": "feat_isolation",
+			"toSide": "top",
+			"label": "Decibel Mirror"
+		},
+		{
+			"id": "edge_bad_to_note",
+			"fromNode": "bad_header",
+			"fromSide": "bottom",
+			"toNode": "bad_note",
+			"toSide": "top",
+			"label": "Comprehensive Distortion Outline",
+			"color": "1"
+		},
+		{
+			"id": "edge_bad_to_checklist",
+			"fromNode": "bad_header",
+			"fromSide": "bottom",
+			"toNode": "bad_checklist",
+			"toSide": "top",
+			"label": "Amateur Traps Checklist",
+			"color": "2"
+		},
+		{
+			"id": "edge_bad_b1_to_whisper",
+			"fromNode": "bad_b1",
+			"fromSide": "bottom",
+			"toNode": "feat_whisper",
+			"toSide": "top",
+			"label": "Eliminates Voice Cringe"
+		},
+		{
+			"id": "edge_bad_b1_to_chat",
+			"fromNode": "bad_b1",
+			"fromSide": "bottom",
+			"toNode": "feat_chat",
+			"toSide": "top",
+			"label": "Query Without Reliving"
+		},
+		{
+			"id": "edge_bad_b3_to_dropped",
+			"fromNode": "bad_b3",
+			"fromSide": "bottom",
+			"toNode": "feat_dropped",
+			"toSide": "top",
+			"label": "Missed Setup Alerts"
+		},
+		{
+			"id": "edge_bad_b5_to_ghost",
+			"fromNode": "bad_b5",
+			"fromSide": "bottom",
+			"toNode": "feat_ghost",
+			"toSide": "top",
+			"label": "Insulated Focus Sandbox"
+		},
+		{
+			"id": "edge_bad_b9_to_bitdb",
+			"fromNode": "bad_b9",
+			"fromSide": "bottom",
+			"toNode": "feat_bitdb",
+			"toSide": "top",
+			"label": "Versioned Lifecycle"
+		}
+	]
+}
