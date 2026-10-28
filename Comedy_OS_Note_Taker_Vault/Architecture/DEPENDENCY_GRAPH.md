@@ -5,7 +5,7 @@ icon: "🕸️"
 ---
 
 # 🕸️ Comedy OS — Live Codebase Dependency Map
-*Auto-generated on 2026-10-26 via `npm run map`*
+*Auto-generated on 2026-10-28 via `npm run map`*
 
 ✅ **Status:** Zero boundary violations or circular dependencies detected.
 
