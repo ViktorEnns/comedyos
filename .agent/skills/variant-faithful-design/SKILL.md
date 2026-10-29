@@ -103,3 +103,27 @@ Derived from Claude Code frontend design standards, **never declare UI complete 
 - **Dynamic States:** Test empty state, multi-block state, and error/offline state.
 - **Linguistic Highlights:** Inspect `beui.dev` inline word-highlighting spans (`.word-hl`) to verify they render with tight `2px` radii and subtle low-alpha tints without breaking line height.
 - Consult [`design-system/DESIGNER_TASTE.md`](file:///e:/-&#32;CODE/ComedyOS-2026/design-system/DESIGNER_TASTE.md) whenever in doubt regarding Granola, `beui.dev`, Variant `e4b3ad22`, or Linear design patterns.
+
+
+---
+
+## 6. Linear Issue Tracking Protocol (Mandatory Workflow)
+
+Whenever diagnosing, implementing, or fixing issues:
+1. **Always create an issue in Linear** under the **`COS` (Comedy OS)** team with a clear, concise title.
+2. In the issue description, always document:
+   - **What was done:** Specific files, UI controls, or functions modified or created.
+   - **Why:** The architectural reason, user pain point, or visual bug being resolved.
+3. Keep the user informed with the issue identifier (`COS-X`) upon completion.
+
+
+---
+
+## 6. Linear Issue Tracking Protocol (Mandatory Workflow)
+
+Whenever diagnosing, implementing, or fixing issues:
+1. **Always create an issue in Linear** under the **`COS` (Comedy OS)** team with a clear, concise title.
+2. In the issue description, always document:
+   - **What was done:** Specific files, UI controls, or functions modified or created.
+   - **Why:** The architectural reason, user pain point, or visual bug being resolved.
+3. Keep the user informed with the issue identifier (`COS-X`) upon completion.
