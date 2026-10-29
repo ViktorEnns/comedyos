@@ -15,4 +15,4 @@ jobs:
         env:
           LINEAR_API_KEY: ${{ secrets.LINEAR_API_KEY }}
         with:
-          team-id: 'MAR'
+          team-id: 'COS'
