@@ -1,91 +1,105 @@
 ---
 name: variant-faithful-design
-description: Recreate reference UI designs (especially Variant.com designs and the ComedyOS Gallery Editorial / Typographic Ledger aesthetic) with 1:1 structural, typographic, and spatial fidelity. Synthesizes the Google AI Studio Gallery Editorial Extract and the Forensic Variant DOM Extract.
+description: Recreate reference UI designs (especially Variant.com designs like 8a6a23bf and 568d8c7f, and the ComedyOS Typographic Ledger / Gallery Editorial aesthetic) with 1:1 structural, typographic, and spatial fidelity using the getdesign.md 2-layer specification standard.
 ---
 
 # ComedyOS Gallery Editorial & Variant-Faithful Design Skill (`SKILL.md`)
 
 Use this skill whenever building or refining ComedyOS interfaces, landing pages, documentation engines, or recreating Variant.com reference designs.
 
-## 0. Mental Model: "The Interface is the Gallery; Content is the Exhibit"
-- Treat the viewport like a matte, unhurried museum exhibition wall or literary monograph (`#1A1918`).
-- Hierarchy is established through **type scale, 4-tier optical luminance, and macro whitespace** (`{8, 16, 24, 32, 48, 64, 96}px`)—**NEVER** through cards, secondary background boxes, drop-shadows, `border-l-2`/`border-l-4` callout stripes, or pulsing status dots.
-- Every clickable button MUST have **crisp tactile affordance** (`.btn`: `1px solid` hairline stroke, `2px` radius, `7px 16px` padding, uppercase `0.16em` tracking) so buttons are never confused with static text and never rendered as heavy opaque bricks.
+## 0. Authoritative Reference Files (Read Before Generating UI)
+1. **Master `getdesign.md` Specification:** [`design-system/DESIGN.md`](file:///e:/-&#32;CODE/ComedyOS-2026/design-system/DESIGN.md) (Contains machine-readable YAML tokens + the 9 canonical `getdesign.md` sections).
+2. **Gemini Flash Execution Plan & Forensic Study:** [`design-system/FLASH_DESIGN_SYSTEM_EXECUTION_PLAN.md`](file:///e:/-&#32;CODE/ComedyOS-2026/design-system/FLASH_DESIGN_SYSTEM_EXECUTION_PLAN.md) (Contains copy-paste CSS boilerplate and HTML AST templates).
+3. **Local Ground-Truth Variant DOM Specimens:**
+   - [`design-system/specimens/variant-8a6a23bf-archive.html`](file:///e:/-&#32;CODE/ComedyOS-2026/design-system/specimens/variant-8a6a23bf-archive.html) (`COMEDYOS Archive v1.0` — 3-Pane Reader & Typographic Ledger)
+   - [`design-system/specimens/variant-568d8c7f-system-specimen.html`](file:///e:/-&#32;CODE/ComedyOS-2026/design-system/specimens/variant-568d8c7f-system-specimen.html) (`ComedyOS System Specimen v1.0` — Form Controls & Note Index)
 
 ---
 
-## 1. Ground-Truth Extraction Protocol (When Given Reference URLs)
-1. **Unwrap `variant.com/shared/<uuid>` Iframes:**
-   - Variant shared links wrap the actual design inside `<iframe src="/design/<uuid>.html">`. Always fetch `https://variant.com/design/<uuid>.html` first to inspect the full DOM and CSS before writing code.
-2. **Reference DNA Overrides Generic Linters:**
-   - Never allow generic third-party linters (`taste-skill`) to strip uppercase/small-caps labels, brighten intentionally recessed `--ink-faint` metadata, or force opaque `data-ui` box containers onto the `#1A1918` canvas.
+## 1. Mental Model: "The Typographic Ledger & Late-Night Monograph"
+- Treat the viewport like a matte, unhurried literary monograph or museum exhibition wall (`#1A1918`).
+- Hierarchy is established through **type scale, 4-tier optical luminance, sub-pixel `0.5px` hairlines (`rgba(245, 242, 237, 0.10)`), and macro whitespace**—**NEVER** through cards, secondary background boxes (`#22211F`), drop-shadows, `border-l-2`/`border-l-4` callout stripes, or pulsing status dots.
+- **Navigation vs. Action Split:**
+  - **Navigation Rails** (Left Sidebar, Top Header links, Right TOC, Footer Pagination) use clean, borderless typography (`10px–11px` `Inter`, `.small-caps`).
+  - **Workspace Action Buttons** (Save, Record, Extract, Split, Sync, New Entry) MUST use the tactile **`.btn` contract** (`1px solid rgba(245,242,237,0.25)`, `2px` radius, `6px 14px` padding, uppercase `0.16em` tracking) so clickable actions are never confused with static prose.
 
 ---
 
 ## 2. Pre-Flight Token Checklist
 Verify these exact tokens in global CSS before generating any markup:
-- `--bg: #1A1918` (deep matte charcoal canvas; >=96% of viewport)
-- `--ink: #F5F2ED` (Tier 1: primary headlines, verbatim quotes, active controls)
-- `--ink-muted: #A19F9A` (Tier 2: standard body prose, descriptions)
-- `--ink-faint: rgba(245, 242, 237, 0.45)` (Tier 3: recessed rubrics, timestamps, `9px` input labels; equivalent to `#5C5A55`)
-- `--hairline: rgba(245, 242, 237, 0.10)` (Tier 4: `1px` dividers and `.dot-leader` rules; equivalent to `#33312E`)
-- `--hairline-btn: rgba(245, 242, 237, 0.25)` (tactile button stroke)
-- `--accent: #9FAF9A` (muted sage; sole focal accent per view)
+- `--bg: #1A1918` (deep matte charcoal canvas; >=95% of viewport)
+- `--ink: #F5F2ED` (Tier 1 Bone: headings, verbatim scripts, active nav, and inline `<span class="text-[#F5F2ED]">` highlights inside muted prose)
+- `--ink-secondary: #8C8782` (Tier 2 Stone: standard body prose `<p>`, lead italic subtitles, default nav/TOC links)
+- `--ink-muted: #5C5A55` (Tier 3 Charcoal: `small-caps` input labels, timestamps, bit codes)
+- `--ink-recessed: #4A4845` (Tier 4 Ash: search placeholders, bottom colophon, tertiary group headers)
+- `--hairline: rgba(245, 242, 237, 0.10)` (`0.5px` structural pane dividers `.hairline-b`, `.hairline-r`, `.hairline-l`)
+- `--hairline-dot: rgba(245, 242, 237, 0.20)` (`1px dotted` horizontal `.dot-leader` rules)
+- `--accent-brass: #B4A28A` (Editorial & Reading Signal: italic serif section numerals `2.1`, breadcrumbs `Manual / 02`, active link underlines, `::selection`)
+- `--accent-sage: #9FAF9A` (Interactive & Live Signal: `.btn-primary`, `:focus-within` input underlines, stage-active punchlines, live sync indicator)
 
 ---
 
 ## 3. Canonical Component Contracts
 
-### 3.1 The Button Contract (`.btn` & `.btn-primary`)
-Every clickable action (Submit, Navigate, Switch Stage, Record, Filter, Undo) MUST use `.btn`:
-```css
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 7px 16px;
-  font-family: var(--font-sans);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--ink);
-  background: transparent;
-  border: 1px solid var(--hairline-btn);
-  border-radius: 2px;
-  cursor: pointer;
-  transition: all 220ms cubic-bezier(0.25, 0.1, 0.25, 1);
-}
-.btn:hover {
-  border-color: rgba(245, 242, 237, 0.75);
-  color: #FFFFFF;
-  background: rgba(245, 242, 237, 0.04);
-}
-.btn-primary {
-  padding: 10px 20px;
-  border-color: rgba(159, 175, 154, 0.65);
-  background: rgba(159, 175, 154, 0.06);
-}
-.btn-primary:hover {
-  border-color: var(--accent);
-  background: rgba(159, 175, 154, 0.14);
-}
+### 3.1 The 3-Pane Application Shell (From Variant `8a6a23bf`, Upgraded for Responsiveness)
+- **Top Masthead:** `h-16 px-6 lg:px-10 hairline-b shrink-0 flex items-center justify-between`
+- **Left Library Rail:** `hidden md:flex w-52 lg:w-64 hairline-r p-8 lg:p-10 flex-col justify-between shrink-0`
+- **Center Reading / Workbench Well:** `flex-1 px-6 md:px-12 lg:px-20 pt-12 lg:pt-16 pb-12 overflow-y-auto` housing `<article class="max-w-2xl mx-auto">`
+- **Right Context / TOC Rail:** `hidden xl:block w-48 hairline-l p-10 shrink-0`
+
+### 3.2 Editorial Section Heading Lockup (`2.1 The Dataset`)
+Align an italic `Crimson Pro` brass numeral (`20px`) with a roman `Crimson Pro` light heading (`24px`) on `items-baseline`:
+```html
+<div class="flex items-baseline mb-4">
+  <span class="font-serif italic text-xl mr-4 text-[#B4A28A]">2.1</span>
+  <h2 class="font-serif text-2xl font-light text-[#F5F2ED]">The Dataset</h2>
+</div>
 ```
 
-### 3.2 The Architectural Input Contract (`.input-line-group`)
-Never put a background fill or 4-sided border on `<input>` or `<textarea>`:
-- Wrapper: `border-bottom: 1px solid var(--hairline); padding-bottom: 8px;` (focuses to `--accent`).
-- Micro-Label above: `9px`, `Inter 500`, `text-transform: uppercase`, `letter-spacing: 0.16em`, `color: var(--ink-faint)`.
-- Input element: `background: transparent; border: none; outline: none; font-family: 'Crimson Pro', serif; font-size: 19px; font-weight: 300; color: var(--ink);`.
+### 3.3 Circular Badge + Dot-Leader Index Row (`2.2 Navigating the Craft`)
+```html
+<div class="flex items-center text-[11px] small-caps py-1 group cursor-pointer">
+  <span class="w-4 h-4 rounded-full border border-[rgba(245,242,237,0.1)] flex items-center justify-center mr-3 text-[8px] text-[#8C8782]">A</span>
+  <span class="text-[#F5F2ED] group-hover:text-[#B4A28A] transition-colors">Writing &amp; Joke Construction</span>
+  <div class="dot-leader"></div>
+  <span class="font-mono text-[#8C8782] tabular-nums">25 Entries</span>
+</div>
+```
 
-### 3.3 The Typographic Ledger & Dot Leader (`.index-row`)
-- Connect left-aligned `Crimson Pro` titles (`20px`, transitioning to `italic` on hover) to right-aligned `JetBrains Mono` / `tabular-nums` metadata using `.dot-leader` (`flex-grow: 1; border-bottom: 1px dotted var(--hairline); margin: 0 12px 6px 12px;`).
+### 3.4 Tactile Workspace Button (`.btn` & `.btn-primary`)
+- `.btn`: `border: 1px solid rgba(245,242,237,0.25); border-radius: 2px; padding: 6px 14px; font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.16em; background: transparent; color: #F5F2ED;`
+- `.btn-primary`: `border-color: rgba(159,175,154,0.65); background: rgba(159,175,154,0.06);`
+
+### 3.5 Architectural Bottom-Line Input (`.input-line-group`)
+- Wrapper: `border-bottom: 0.5px solid rgba(245, 242, 237, 0.10); padding-bottom: 8px;` (focuses to `--accent-sage`).
+- Micro-Label above: `9px`, `Inter 500`, `small-caps`, `letter-spacing: 0.18em`, `color: #5C5A55`.
+- Input/Textarea: `background: transparent; border: none; outline: none; font-family: 'Crimson Pro', serif; font-size: 19px; font-weight: 300; color: #F5F2ED;`.
 
 ---
 
 ## 4. Constitutional Invariants (Never Violate)
-1. **Zero Card Surfaces or Box Containers:** No `#22211F` specimen boxes, no `border-l-2`/`border-l-4` tinted callout boxes, no drop shadows.
-2. **Universal Tactile Button Affordance:** No bare underlined text buttons (`The Invisible Button Flaw`) and no solid-fill pastel bricks. All buttons use `.btn` (`2px` radius, `1px` stroke).
-3. **Strict Font Role Decoupling:** `Crimson Pro` for Display, Headings, Verbatim Quotes, and Primary Inputs. `Inter` for Body Prose and Uppercase/Small-Caps Labels. `JetBrains Mono` for IDs and Timestamps.
-4. **Restrained Single-Accent Budget:** `#9FAF9A` sage is the only focal accent color. Never use decorative status dots (`rounded-full`) next to text counters.
-5. **Base-8 / Base-16 Spatial Grid:** Snap all spacing strictly to `{8px, 16px, 24px, 32px, 48px, 64px, 96px}`.
+1. **Zero Card Surfaces or Box Containers:** No `#22211F` boxes, no `border-l-2`/`border-l-4` tinted callouts, no `box-shadow`, no `border-radius` > `2px` on rectangles.
+2. **Hidden Scrollbars Everywhere:** Always enforce `scrollbar-width: none` and `::-webkit-scrollbar { display: none; }`.
+3. **Strict Font Role Decoupling:** `Crimson Pro` for Display, Headings, Numerals (`2.1`), Verbatim Quotes, and Primary Inputs. `Inter` for Body Prose and Small-Caps Labels. `JetBrains Mono` (`tabular-nums`) for IDs, Timestamps, and Counters.
+4. **Semantic Dual-Accent Discipline:** `#B4A28A` (Brass) for editorial/reading numerals and active underlines; `#9FAF9A` (Sage) for interactive CTA buttons, input focus, and live sync status.
+
+
+---
+
+## 5. Visual Quality Assurance: The 3-Iteration Visual Loop ("See With Eyes, Not Code")
+
+Derived from Claude Code frontend design standards, **never declare UI complete based strictly on code inspection**. Run through this 3-iteration self-critique loop before shipping:
+
+### Iteration 1: Structural Skeleton & Wayfinding (The Squint Test)
+- Render the page in a browser at Desktop (`1440×900`) and Mobile (`390×844`).
+- **Wayfinding check:** Does the user immediately know *where* they are and *how* to switch views (e.g. via persistent breadcrumbs `COMEDYOS / WORKBENCH / B-104` or segmented top tabs)?
+- **Density check:** Is $\ge 90\%$ of the canvas open breathing room? Are section headers distinct from body prose?
+
+### Iteration 2: Component Affordance & Typography
+- **Tactile Button Contract:** Do all clickable controls unmistakably look like tactile buttons (`.btn` with `1px` border, `2px` micro-chamfer)? Are primary actions clearly elevated (`.btn-primary`)?
+- **Text Alignment:** Are inputs resting cleanly on transparent bottom borders (`.input-line-group`) without unsightly box outlines?
+
+### Iteration 3: Micro-States & Edge Validation
+- **Dynamic States:** Test empty state, multi-block state, and error/offline state.
+- **Linguistic Highlights:** Inspect `beui.dev` inline word-highlighting spans (`.word-hl`) to verify they render with tight `2px` radii and subtle low-alpha tints without breaking line height.
+- Consult [`design-system/DESIGNER_TASTE.md`](file:///e:/-&#32;CODE/ComedyOS-2026/design-system/DESIGNER_TASTE.md) whenever in doubt regarding Granola, `beui.dev`, Variant `e4b3ad22`, or Linear design patterns.

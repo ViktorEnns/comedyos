@@ -1,0 +1,1033 @@
+<html lang="en" vid="0"><head vid="1">
+    <meta charset="UTF-8" vid="2">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" vid="3">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" vid="5">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" vid="6">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200;0,300;0,400;1,200;1,300&amp;family=Inter:wght@300;400;500&amp;display=swap" rel="stylesheet" vid="7">
+    <style vid="8">
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1A1918;
+            color: #F5F2ED;
+            overflow: hidden; 
+        }
+        .font-serif {
+            font-family: 'Crimson Pro', serif;
+        }
+        .small-caps {
+            font-variant: small-caps;
+            letter-spacing: 0.1em;
+        }
+        .hairline-b {
+            border-bottom: 0.5px solid rgba(245, 242, 237, 0.1);
+        }
+        .hairline-r {
+            border-right: 0.5px solid rgba(245, 242, 237, 0.1);
+        }
+        .hairline-l {
+            border-left: 0.5px solid rgba(245, 242, 237, 0.1);
+        }
+        .dot-leader {
+            flex-grow: 1;
+            border-bottom: 1px dotted rgba(245, 242, 237, 0.2);
+            margin: 0 8px;
+            position: relative;
+            top: -4px;
+        }
+        ::selection {
+            background: #B4A28A;
+            color: #1A1918;
+        }
+    </style>
+
+  <style type="text/css">
+*, ::before, ::after {
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-gradient-from-position:  ;
+  --tw-gradient-via-position:  ;
+  --tw-gradient-to-position:  ;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
+  --tw-contain-size:  ;
+  --tw-contain-layout:  ;
+  --tw-contain-paint:  ;
+  --tw-contain-style:  ;
+}
+
+::backdrop {
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-gradient-from-position:  ;
+  --tw-gradient-via-position:  ;
+  --tw-gradient-to-position:  ;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
+  --tw-contain-size:  ;
+  --tw-contain-layout:  ;
+  --tw-contain-paint:  ;
+  --tw-contain-style:  ;
+}/*
+! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com
+*//*
+1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
+2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
+*/
+
+*,
+::before,
+::after {
+  box-sizing: border-box; /* 1 */
+  border-width: 0; /* 2 */
+  border-style: solid; /* 2 */
+  border-color: #e5e7eb; /* 2 */
+}
+
+::before,
+::after {
+  --tw-content: '';
+}
+
+/*
+1. Use a consistent sensible line-height in all browsers.
+2. Prevent adjustments of font size after orientation changes in iOS.
+3. Use a more readable tab size.
+4. Use the user's configured `sans` font-family by default.
+5. Use the user's configured `sans` font-feature-settings by default.
+6. Use the user's configured `sans` font-variation-settings by default.
+7. Disable tap highlights on iOS
+*/
+
+html,
+:host {
+  line-height: 1.5; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+  -moz-tab-size: 4; /* 3 */
+  tab-size: 4; /* 3 */
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 4 */
+  font-feature-settings: normal; /* 5 */
+  font-variation-settings: normal; /* 6 */
+  -webkit-tap-highlight-color: transparent; /* 7 */
+}
+
+/*
+1. Remove the margin in all browsers.
+2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
+*/
+
+body {
+  margin: 0; /* 1 */
+  line-height: inherit; /* 2 */
+}
+
+/*
+1. Add the correct height in Firefox.
+2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
+3. Ensure horizontal rules are visible by default.
+*/
+
+hr {
+  height: 0; /* 1 */
+  color: inherit; /* 2 */
+  border-top-width: 1px; /* 3 */
+}
+
+/*
+Add the correct text decoration in Chrome, Edge, and Safari.
+*/
+
+abbr:where([title]) {
+  text-decoration: underline dotted;
+}
+
+/*
+Remove the default font size and weight for headings.
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*
+Reset links to optimize for opt-in styling instead of opt-out.
+*/
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/*
+Add the correct font weight in Edge and Safari.
+*/
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/*
+1. Use the user's configured `mono` font-family by default.
+2. Use the user's configured `mono` font-feature-settings by default.
+3. Use the user's configured `mono` font-variation-settings by default.
+4. Correct the odd `em` font sizing in all browsers.
+*/
+
+code,
+kbd,
+samp,
+pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; /* 1 */
+  font-feature-settings: normal; /* 2 */
+  font-variation-settings: normal; /* 3 */
+  font-size: 1em; /* 4 */
+}
+
+/*
+Add the correct font size in all browsers.
+*/
+
+small {
+  font-size: 80%;
+}
+
+/*
+Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+*/
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/*
+1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
+2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
+3. Remove gaps between table borders by default.
+*/
+
+table {
+  text-indent: 0; /* 1 */
+  border-color: inherit; /* 2 */
+  border-collapse: collapse; /* 3 */
+}
+
+/*
+1. Change the font styles in all browsers.
+2. Remove the margin in Firefox and Safari.
+3. Remove default padding in all browsers.
+*/
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-feature-settings: inherit; /* 1 */
+  font-variation-settings: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  font-weight: inherit; /* 1 */
+  line-height: inherit; /* 1 */
+  letter-spacing: inherit; /* 1 */
+  color: inherit; /* 1 */
+  margin: 0; /* 2 */
+  padding: 0; /* 3 */
+}
+
+/*
+Remove the inheritance of text transform in Edge and Firefox.
+*/
+
+button,
+select {
+  text-transform: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Remove default button styles.
+*/
+
+button,
+input:where([type='button']),
+input:where([type='reset']),
+input:where([type='submit']) {
+  -webkit-appearance: button; /* 1 */
+  background-color: transparent; /* 2 */
+  background-image: none; /* 2 */
+}
+
+/*
+Use the modern Firefox focus style for all focusable elements.
+*/
+
+:-moz-focusring {
+  outline: auto;
+}
+
+/*
+Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
+*/
+
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+
+/*
+Add the correct vertical alignment in Chrome and Firefox.
+*/
+
+progress {
+  vertical-align: baseline;
+}
+
+/*
+Correct the cursor style of increment and decrement buttons in Safari.
+*/
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/*
+1. Correct the odd appearance in Chrome and Safari.
+2. Correct the outline style in Safari.
+*/
+
+[type='search'] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/*
+Remove the inner padding in Chrome and Safari on macOS.
+*/
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Change font properties to `inherit` in Safari.
+*/
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/*
+Add the correct display in Chrome and Safari.
+*/
+
+summary {
+  display: list-item;
+}
+
+/*
+Removes the default spacing and border for appropriate elements.
+*/
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre {
+  margin: 0;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+ol,
+ul,
+menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+Reset default styling for dialogs.
+*/
+dialog {
+  padding: 0;
+}
+
+/*
+Prevent resizing textareas horizontally by default.
+*/
+
+textarea {
+  resize: vertical;
+}
+
+/*
+1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
+2. Set the default placeholder color to the user's configured gray 400 color.
+*/
+
+input::placeholder,
+textarea::placeholder {
+  opacity: 1; /* 1 */
+  color: #9ca3af; /* 2 */
+}
+
+/*
+Set the default cursor for buttons.
+*/
+
+button,
+[role="button"] {
+  cursor: pointer;
+}
+
+/*
+Make sure disabled buttons don't get the pointer cursor.
+*/
+:disabled {
+  cursor: default;
+}
+
+/*
+1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
+2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
+   This can trigger a poorly considered lint error in some tools but is included by design.
+*/
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block; /* 1 */
+  vertical-align: middle; /* 2 */
+}
+
+/*
+Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
+*/
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Make elements with the HTML hidden attribute stay hidden by default */
+[hidden]:where(:not([hidden="until-found"])) {
+  display: none;
+}
+.relative {
+  position: relative;
+}
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+.mb-12 {
+  margin-bottom: 3rem;
+}
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+.mb-4 {
+  margin-bottom: 1rem;
+}
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+.mr-2 {
+  margin-right: 0.5rem;
+}
+.mr-3 {
+  margin-right: 0.75rem;
+}
+.mr-4 {
+  margin-right: 1rem;
+}
+.mt-1 {
+  margin-top: 0.25rem;
+}
+.mt-24 {
+  margin-top: 6rem;
+}
+.block {
+  display: block;
+}
+.flex {
+  display: flex;
+}
+.hidden {
+  display: none;
+}
+.h-16 {
+  height: 4rem;
+}
+.h-4 {
+  height: 1rem;
+}
+.h-screen {
+  height: 100vh;
+}
+.w-4 {
+  width: 1rem;
+}
+.w-48 {
+  width: 12rem;
+}
+.w-64 {
+  width: 16rem;
+}
+.w-full {
+  width: 100%;
+}
+.max-w-2xl {
+  max-width: 42rem;
+}
+.flex-1 {
+  flex: 1 1 0%;
+}
+.shrink-0 {
+  flex-shrink: 0;
+}
+.flex-grow {
+  flex-grow: 1;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.flex-col {
+  flex-direction: column;
+}
+.items-center {
+  align-items: center;
+}
+.items-baseline {
+  align-items: baseline;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.gap-2 {
+  gap: 0.5rem;
+}
+.gap-3 {
+  gap: 0.75rem;
+}
+.gap-4 {
+  gap: 1rem;
+}
+.gap-6 {
+  gap: 1.5rem;
+}
+.gap-8 {
+  gap: 2rem;
+}
+.space-y-3 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
+}
+.space-y-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+}
+.space-y-6 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+}
+.space-y-8 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(2rem * var(--tw-space-y-reverse));
+}
+.overflow-hidden {
+  overflow: hidden;
+}
+.overflow-y-auto {
+  overflow-y: auto;
+}
+.rounded-full {
+  border-radius: 9999px;
+}
+.border {
+  border-width: 1px;
+}
+.border-t {
+  border-top-width: 1px;
+}
+.border-none {
+  border-style: none;
+}
+.border-\[rgba\(245\2c 242\2c 237\2c 0\.05\)\] {
+  border-color: rgba(245,242,237,0.05);
+}
+.border-\[rgba\(245\2c 242\2c 237\2c 0\.1\)\] {
+  border-color: rgba(245,242,237,0.1);
+}
+.bg-transparent {
+  background-color: transparent;
+}
+.p-10 {
+  padding: 2.5rem;
+}
+.px-10 {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+.px-20 {
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+.pb-12 {
+  padding-bottom: 3rem;
+}
+.pb-8 {
+  padding-bottom: 2rem;
+}
+.pt-16 {
+  padding-top: 4rem;
+}
+.font-serif {
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
+.text-\[10px\] {
+  font-size: 10px;
+}
+.text-\[11px\] {
+  font-size: 11px;
+}
+.text-\[8px\] {
+  font-size: 8px;
+}
+.text-\[9px\] {
+  font-size: 9px;
+}
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.font-light {
+  font-weight: 300;
+}
+.font-medium {
+  font-weight: 500;
+}
+.italic {
+  font-style: italic;
+}
+.leading-none {
+  line-height: 1;
+}
+.leading-relaxed {
+  line-height: 1.625;
+}
+.tracking-\[0\.2em\] {
+  letter-spacing: 0.2em;
+}
+.tracking-tight {
+  letter-spacing: -0.025em;
+}
+.tracking-wide {
+  letter-spacing: 0.025em;
+}
+.text-\[\#4A4845\] {
+  --tw-text-opacity: 1;
+  color: rgb(74 72 69 / var(--tw-text-opacity, 1));
+}
+.text-\[\#8C8782\] {
+  --tw-text-opacity: 1;
+  color: rgb(140 135 130 / var(--tw-text-opacity, 1));
+}
+.text-\[\#B4A28A\] {
+  --tw-text-opacity: 1;
+  color: rgb(180 162 138 / var(--tw-text-opacity, 1));
+}
+.text-\[\#F5F2ED\] {
+  --tw-text-opacity: 1;
+  color: rgb(245 242 237 / var(--tw-text-opacity, 1));
+}
+.underline {
+  text-decoration-line: underline;
+}
+.decoration-\[\#B4A28A\] {
+  text-decoration-color: #B4A28A;
+}
+.underline-offset-4 {
+  text-underline-offset: 4px;
+}
+.outline-none {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+.transition-colors {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.placeholder\:text-\[\#4A4845\]::placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(74 72 69 / var(--tw-text-opacity, 1));
+}
+.hover\:text-\[\#B4A28A\]:hover {
+  --tw-text-opacity: 1;
+  color: rgb(180 162 138 / var(--tw-text-opacity, 1));
+}
+.hover\:text-\[\#F5F2ED\]:hover {
+  --tw-text-opacity: 1;
+  color: rgb(245 242 237 / var(--tw-text-opacity, 1));
+}
+.group:hover .group-hover\:text-\[\#B4A28A\] {
+  --tw-text-opacity: 1;
+  color: rgb(180 162 138 / var(--tw-text-opacity, 1));
+}* {
+      -ms-overflow-style: none !important;
+      scrollbar-width: none !important;
+    }
+
+    *::-webkit-scrollbar {
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
+    }
+  </style></head>
+<body class="w-full h-screen flex flex-col" vid="9">
+
+    
+    <header class="h-16 w-full flex items-center justify-between px-10 hairline-b shrink-0" vid="10">
+        <div class="flex items-center gap-4" vid="11">
+            <span class="font-serif text-xl font-light tracking-tight" vid="12">COMEDYOS</span>
+            <span class="text-[10px] small-caps text-[#8C8782] mt-1" vid="13">Archive v1.0</span>
+        </div>
+        
+        <div class="flex items-center gap-8" vid="14">
+            <div class="flex items-center gap-3" vid="15">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8C8782" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search" vid="16"><circle cx="11" cy="11" r="8" vid="17"></circle><line x1="21" y1="21" x2="16.65" y2="16.65" vid="18"></line></svg>
+                <input type="text" placeholder="SEARCH ARCHIVE..." class="bg-transparent border-none outline-none text-[10px] small-caps text-[#8C8782] w-48 placeholder:text-[#4A4845]" vid="19">
+            </div>
+            <nav class="flex gap-6 text-[10px] small-caps text-[#8C8782]" vid="20">
+                <a href="#" class="hover:text-[#F5F2ED] transition-colors" vid="21">Dictionary</a>
+                <a href="#" class="hover:text-[#F5F2ED] transition-colors" vid="22">GitHub</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="flex flex-1 overflow-hidden" vid="23">
+        
+        
+        <aside class="w-64 hairline-r p-10 flex flex-col justify-between shrink-0" vid="24">
+            <div class="space-y-8" vid="25">
+                <div vid="26">
+                    <h4 class="text-[10px] small-caps text-[#8C8782] mb-4" vid="27">Library</h4>
+                    <ul class="space-y-3 text-[11px] tracking-wide" vid="28">
+                        <li class="flex items-baseline group cursor-pointer" vid="29">
+                            <span class="text-[#8C8782] mr-2" vid="30">01.</span>
+                            <span class="group-hover:text-[#B4A28A]" vid="31">Introduction</span>
+                        </li>
+                        <li class="flex items-baseline group cursor-pointer text-[#F5F2ED]" vid="32">
+                            <span class="text-[#B4A28A] mr-2" vid="33">02.</span>
+                            <span class="font-medium underline underline-offset-4 decoration-[#B4A28A]" vid="34">Getting Started</span>
+                        </li>
+                        <li class="flex items-baseline group cursor-pointer" vid="35">
+                            <span class="text-[#8C8782] mr-2" vid="36">03.</span>
+                            <span class="group-hover:text-[#B4A28A]" vid="37">Categories</span>
+                        </li>
+                        <li class="flex items-baseline group cursor-pointer" vid="38">
+                            <span class="text-[#8C8782] mr-2" vid="39">04.</span>
+                            <span class="group-hover:text-[#B4A28A]" vid="40">Masterclasses</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div vid="41">
+                    <h4 class="text-[10px] small-caps text-[#8C8782] mb-4" vid="42">The Craft</h4>
+                    <ul class="space-y-3 text-[11px] tracking-wide text-[#8C8782]" vid="43">
+                        <li class="flex items-baseline hover:text-[#F5F2ED] cursor-pointer" vid="44">
+                            <span class="mr-2" vid="45">05.</span>
+                            <span vid="46">Writing &amp; Joke Construction</span>
+                        </li>
+                        <li class="flex items-baseline hover:text-[#F5F2ED] cursor-pointer" vid="47">
+                            <span class="mr-2" vid="48">06.</span>
+                            <span vid="49">Performance &amp; Stagecraft</span>
+                        </li>
+                        <li class="flex items-baseline hover:text-[#F5F2ED] cursor-pointer" vid="50">
+                            <span class="mr-2" vid="51">07.</span>
+                            <span vid="52">Mental Attitudes</span>
+                        </li>
+                        <li class="flex items-baseline hover:text-[#F5F2ED] cursor-pointer" vid="53">
+                            <span class="mr-2" vid="54">08.</span>
+                            <span vid="55">Problem-Solving</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="text-[9px] small-caps text-[#4A4845] leading-relaxed" vid="56">
+                ComedyOS Archive<br vid="57">
+                Verbatim Knowledge Base<br vid="58">
+                Est. 2024
+            </div>
+        </aside>
+
+        
+        <main class="flex-1 overflow-hidden flex" vid="59">
+            <div class="flex-1 px-20 pt-16 pb-8 overflow-y-auto" vid="60">
+                <article class="max-w-2xl mx-auto" vid="61">
+                    <header class="mb-12" vid="62">
+                        <div class="text-[10px] small-caps text-[#B4A28A] mb-2" vid="63">Manual / 02</div>
+                        <h1 class="font-serif text-5xl font-light mb-6" vid="64">Getting Started</h1>
+                        <p class="text-[#8C8782] text-sm leading-relaxed italic" vid="65">
+                            An orientation guide for navigating the verbatim records of modern comedy masterclasses.
+                        </p>
+                    </header>
+
+                    <section id="the-dataset" class="mb-12" vid="66">
+                        <div class="flex items-baseline mb-4" vid="67">
+                            <span class="font-serif italic text-xl mr-4 text-[#B4A28A]" vid="68">2.1</span>
+                            <h2 class="font-serif text-2xl font-light" vid="69">The Dataset</h2>
+                        </div>
+                        <p class="text-sm text-[#8C8782] leading-relaxed mb-4" vid="70">
+                            The ComedyOS Archive consists of exactly seventy verbatim quotes curated from seven distinct podcast masterclasses. These entries represent the atomic units of stand-up comedy knowledge, captured in their original syntax to preserve the speaker's cadence and intent.
+                        </p>
+                        <p class="text-sm text-[#8C8782] leading-relaxed" vid="71">
+                            Each entry is cataloged with a precise timestamp and source attribution. Use this resource not as a narrative, but as a <span class="text-[#F5F2ED]" vid="72">typographic ledger</span> for studying the mechanics of humor.
+                        </p>
+                    </section>
+
+                    <section id="navigating" class="mb-12" vid="73">
+                        <div class="flex items-baseline mb-4" vid="74">
+                            <span class="font-serif italic text-xl mr-4 text-[#B4A28A]" vid="75">2.2</span>
+                            <h2 class="font-serif text-2xl font-light" vid="76">Navigating the Craft</h2>
+                        </div>
+                        <p class="text-sm text-[#8C8782] leading-relaxed mb-6" vid="77">
+                            The archive is segmented into five primary domains of practice. Understanding these classifications is essential for targeted study:
+                        </p>
+                        <div class="space-y-3 text-[11px] small-caps" vid="78">
+                            <div class="flex items-center" vid="79">
+                                <span class="w-4 h-4 rounded-full border border-[rgba(245,242,237,0.1)] flex items-center justify-center mr-3 text-[8px]" vid="80">A</span>
+                                <span vid="81">Writing &amp; Joke Construction</span>
+                                <div class="dot-leader" vid="82"></div>
+                                <span class="text-[#8C8782]" vid="83">25 Entries</span>
+                            </div>
+                            <div class="flex items-center" vid="84">
+                                <span class="w-4 h-4 rounded-full border border-[rgba(245,242,237,0.1)] flex items-center justify-center mr-3 text-[8px]" vid="85">B</span>
+                                <span vid="86">Performance &amp; Stagecraft</span>
+                                <div class="dot-leader" vid="87"></div>
+                                <span class="text-[#8C8782]" vid="88">23 Entries</span>
+                            </div>
+                            <div class="flex items-center" vid="89">
+                                <span class="w-4 h-4 rounded-full border border-[rgba(245,242,237,0.1)] flex items-center justify-center mr-3 text-[8px]" vid="90">C</span>
+                                <span vid="91">Mental Attitudes</span>
+                                <div class="dot-leader" vid="92"></div>
+                                <span class="text-[#8C8782]" vid="93">15 Entries</span>
+                            </div>
+                            <div class="flex items-center" vid="94">
+                                <span class="w-4 h-4 rounded-full border border-[rgba(245,242,237,0.1)] flex items-center justify-center mr-3 text-[8px]" vid="95">D</span>
+                                <span vid="96">Problem-Solving</span>
+                                <div class="dot-leader" vid="97"></div>
+                                <span class="text-[#8C8782]" vid="98">03 Entries</span>
+                            </div>
+                            <div class="flex items-center" vid="99">
+                                <span class="w-4 h-4 rounded-full border border-[rgba(245,242,237,0.1)] flex items-center justify-center mr-3 text-[8px]" vid="100">E</span>
+                                <span vid="101">Overcoming Blocks</span>
+                                <div class="dot-leader" vid="102"></div>
+                                <span class="text-[#8C8782]" vid="103">04 Entries</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="exports" class="mb-12" vid="104">
+                        <div class="flex items-baseline mb-4" vid="105">
+                            <span class="font-serif italic text-xl mr-4 text-[#B4A28A]" vid="106">2.3</span>
+                            <h2 class="font-serif text-2xl font-light" vid="107">Exporting Data</h2>
+                        </div>
+                        <p class="text-sm text-[#8C8782] leading-relaxed" vid="108">
+                            For researchers and developers, the archive is available in raw formats. You can access the complete dataset via the <span class="text-[#F5F2ED] italic" vid="109">Export Dashboard</span> in CSV, JSON, or Markdown formats for integration into personal knowledge management systems.
+                        </p>
+                    </section>
+
+                    
+                    <footer class="pt-16 pb-12 flex justify-between items-center text-[10px] small-caps border-t border-[rgba(245,242,237,0.05)]" vid="110">
+                        <a href="#" class="flex items-center gap-2 text-[#8C8782] hover:text-[#F5F2ED] transition-colors" vid="111">
+                            <span class="font-serif italic text-lg leading-none mt-1" vid="112">←</span>
+                            <span vid="113">01 Introduction</span>
+                        </a>
+                        <a href="#" class="flex items-center gap-2 text-[#8C8782] hover:text-[#F5F2ED] transition-colors" vid="114">
+                            <span vid="115">03 Categories</span>
+                            <span class="font-serif italic text-lg leading-none mt-1" vid="116">→</span>
+                        </a>
+                    </footer>
+                </article>
+            </div>
+
+            
+            <aside class="w-48 hairline-l p-10 shrink-0" vid="117">
+                <h4 class="text-[9px] small-caps text-[#8C8782] mb-6 tracking-[0.2em]" vid="118">On This Page</h4>
+                <ul class="space-y-4 text-[10px] tracking-wide text-[#8C8782]" vid="119">
+                    <li class="cursor-pointer hover:text-[#F5F2ED]" vid="120">
+                        <a href="#the-dataset" vid="121">2.1 The Dataset</a>
+                    </li>
+                    <li class="cursor-pointer hover:text-[#F5F2ED]" vid="122">
+                        <a href="#navigating" vid="123">2.2 Navigating</a>
+                    </li>
+                    <li class="cursor-pointer hover:text-[#F5F2ED]" vid="124">
+                        <a href="#exports" vid="125">2.3 Exporting</a>
+                    </li>
+                </ul>
+
+                <div class="mt-24 space-y-6" vid="126">
+                    <div vid="127">
+                        <h4 class="text-[9px] small-caps text-[#4A4845] mb-2" vid="128">Related</h4>
+                        <a href="#" class="block text-[10px] text-[#8C8782] hover:text-[#B4A28A]" vid="129">Metadata Schema</a>
+                    </div>
+                    <div vid="130">
+                        <h4 class="text-[9px] small-caps text-[#4A4845] mb-2" vid="131">Citation Style</h4>
+                        <span class="block text-[10px] text-[#8C8782]" vid="132">Verbatim (Standard)</span>
+                    </div>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+
+</body></html>

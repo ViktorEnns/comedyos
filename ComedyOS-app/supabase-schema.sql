@@ -196,3 +196,20 @@ create policy "Users can manage their own joke versions"
 -- -----------------------------------------------------------------------------
 alter publication supabase_realtime add table public.journal_entries;
 alter publication supabase_realtime add table public.joke_blocks;
+
+
+-- -----------------------------------------------------------------------------
+-- 7. COMEDIAN TESTER ONBOARDING & PROFILE METADATA (Added v1.1)
+-- -----------------------------------------------------------------------------
+alter table public.profiles
+  add column if not exists stage_name text default '',
+  add column if not exists home_scene text default '',
+  add column if not exists years_performing text default '',
+  add column if not exists social_handle text default '',
+  add column if not exists primary_workflow text default 'hybrid',
+  add column if not exists onboarding_completed boolean not null default false;
+
+drop policy if exists "Users can insert their own profile" on public.profiles;
+create policy "Users can insert their own profile"
+  on public.profiles for insert
+  with check (auth.uid() = id);
