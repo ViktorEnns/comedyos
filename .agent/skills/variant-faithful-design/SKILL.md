@@ -83,7 +83,6 @@ Align an italic `Crimson Pro` brass numeral (`20px`) with a roman `Crimson Pro` 
 3. **Strict Font Role Decoupling:** `Crimson Pro` for Display, Headings, Numerals (`2.1`), Verbatim Quotes, and Primary Inputs. `Inter` for Body Prose and Small-Caps Labels. `JetBrains Mono` (`tabular-nums`) for IDs, Timestamps, and Counters.
 4. **Semantic Dual-Accent Discipline:** `#B4A28A` (Brass) for editorial/reading numerals and active underlines; `#9FAF9A` (Sage) for interactive CTA buttons, input focus, and live sync status.
 
-
 ---
 
 ## 5. Visual Quality Assurance: The 3-Iteration Visual Loop ("See With Eyes, Not Code")
@@ -104,26 +103,16 @@ Derived from Claude Code frontend design standards, **never declare UI complete 
 - **Linguistic Highlights:** Inspect `beui.dev` inline word-highlighting spans (`.word-hl`) to verify they render with tight `2px` radii and subtle low-alpha tints without breaking line height.
 - Consult [`design-system/DESIGNER_TASTE.md`](file:///e:/-&#32;CODE/ComedyOS-2026/design-system/DESIGNER_TASTE.md) whenever in doubt regarding Granola, `beui.dev`, Variant `e4b3ad22`, or Linear design patterns.
 
-
 ---
 
-## 6. Linear Issue Tracking Protocol (Mandatory Workflow)
+## 6. Linear & GitHub Dual Issue Tracking Protocol (Mandatory Workflow)
 
 Whenever diagnosing, implementing, or fixing issues:
 1. **Always create an issue in Linear** under the **`COS` (Comedy OS)** team with a clear, concise title.
 2. In the issue description, always document:
    - **What was done:** Specific files, UI controls, or functions modified or created.
    - **Why:** The architectural reason, user pain point, or visual bug being resolved.
-3. Keep the user informed with the issue identifier (`COS-X`) upon completion.
-
-
----
-
-## 6. Linear Issue Tracking Protocol (Mandatory Workflow)
-
-Whenever diagnosing, implementing, or fixing issues:
-1. **Always create an issue in Linear** under the **`COS` (Comedy OS)** team with a clear, concise title.
-2. In the issue description, always document:
-   - **What was done:** Specific files, UI controls, or functions modified or created.
-   - **Why:** The architectural reason, user pain point, or visual bug being resolved.
-3. Keep the user informed with the issue identifier (`COS-X`) upon completion.
+3. **Mirror and track in GitHub:**
+   - Every issue resolved MUST be committed and pushed to GitHub with a distinct, atomic commit referencing the issue (`fix(auth): resolve google oauth redirect in joke-writer (COS-4)`).
+   - If GitHub Issues are enabled, synchronize the Linear ticket with the corresponding GitHub issue.
+4. Keep the user informed with the issue identifier (`COS-X`) and GitHub commit hash upon completion.
